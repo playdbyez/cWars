@@ -54,3 +54,96 @@ for(size_t hel = 0; hel<sums.size(); hel++)
   
 return anz;
 }
+//20045
+
+
+
+
+///OR
+
+
+
+#include <iostream> 
+#include <string> 
+#include <vector> 
+#include <algorithm> 
+#include<chrono>
+
+using namespace std; 
+int main(){
+auto start = std::chrono::high_resolution_clock::now();
+    vector <int> ls {91, 74, 73, 85, 73, 81, 87};
+vector<int> to;
+vector<int>sums;
+
+int k = 5;
+int t = 331;
+unsigned long mn = k;
+int x = 0;
+int anz =-1;
+int si = ls.size();
+  
+if (mn > si){anz = -1;}
+    else{
+sort( ls.begin(), ls.end());
+do{ for(size_t i = 0; i<mn; i++){x+=ls[i];} 
+  if (x<=t)to.push_back(x); x=0;} 
+        while(next_permutation(ls.begin(),ls.end()));
+
+  
+  for (int l : to){if (l <= t){sums.push_back(l);}}
+  sort(sums.begin(), sums.end(), greater());
+
+   
+       if (!to.empty()){anz = sums[0];}
+    }      
+  cout << anz;
+
+
+auto stop = std::chrono::high_resolution_clock::now();
+auto duration = duration_cast<std::chrono::microseconds>(stop - start);
+
+cout << "\n" << duration.count() << " microseconds" ;
+}
+
+
+
+
+//ORR
+
+
+#include <iostream> 
+#include <string> 
+#include <vector> 
+#include <algorithm> 
+using namespace std; 
+class BestTravel
+{
+public:
+    static int chooseBestSum(int t, int k, std::vector<int>& ls);
+};
+
+int BestTravel::chooseBestSum(int t, int k, std::vector<int>& ls){
+vector<int> to;
+vector<int>sums;
+
+
+unsigned long mn = k;
+int x = 0;
+int anz =-1;
+unsigned long si = ls.size();
+  
+ if (mn > si){anz = -1;}
+    if (mn<si){
+          sort( ls.begin(), ls.end());
+                do{ for(size_t i = 0; i<mn; i++){x+=ls[i];} if(x<=t){to.push_back(x);} x=0;} 
+                                            while(next_permutation(ls.begin(),ls.end()));
+
+    
+              sort(to.begin(), to.end(), greater());
+                      if (!to.empty()){anz = to[0];}        }        
+return anz;
+}
+// ALL TESTS PASSED AT: 2575ms
+
+
