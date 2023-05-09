@@ -1,3 +1,70 @@
+//BEST SO FAR
+
+#include <iostream> 
+#include <string> 
+#include <vector> 
+#include <algorithm> 
+#include<chrono>
+
+using namespace std; 
+int main(){
+auto start = std::chrono::high_resolution_clock::now();
+    vector <int> ls {91, 74, 73, 85, 73, 81, 87};
+vector<int> to;
+vector<int>sums;
+
+int k = 4;
+int t = 331;
+
+
+int x = 0;
+int anz =-1;
+size_t si = ls.size();
+ 
+ if (static_cast<size_t>(k) > si){return -1;}
+          sort( ls.begin(), ls.end());
+                do{ for(size_t i = 0; i< static_cast<size_t>(k); i++){x+=ls[i];} 
+                   if(x<=t){
+                          if(std::find(to.begin(), to.end(), x) == to.end()){to.push_back(x);}
+                              } x=0;}
+                                            while(next_permutation(ls.begin(),ls.end()));
+
+              sort(to.begin(), to.end(), greater());
+                      if (to.empty()){return -1;}            
+anz = to[0];
+ 
+cout << anz;
+
+auto stop = std::chrono::high_resolution_clock::now();
+auto duration = duration_cast<std::chrono::microseconds>(stop - start);
+
+cout << "\n" << duration.count() << " microseconds" ;
+}
+//2400
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include <iostream> 
 #include <string> 
 #include <vector> 
