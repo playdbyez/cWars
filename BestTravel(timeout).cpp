@@ -2,6 +2,55 @@
 #include <string> 
 #include <vector> 
 #include <algorithm> 
+#include<chrono>
+
+using namespace std; 
+int main(){
+auto start = std::chrono::high_resolution_clock::now();
+    vector <int> ls {91, 74, 73, 85, 73, 81, 87};
+vector<int> to;
+vector<int>sums;
+
+int k = 4;
+int t = 331;
+unsigned long mn = k;
+int x = 0;
+int anz =-1;
+int si = ls.size();
+  
+if (mn > si){return -1;}
+    if (mn<si && si != 0){
+          sort( ls.begin(), ls.end());
+                do{ for(size_t i = 0; i<mn; i++){x+=ls[i];} 
+                   if(x<=t){
+                     if(std::find(to.begin(), to.end(), x) == to.end()){
+                        to.push_back(x);
+                        } } x=0;}
+                                            while(next_permutation(ls.begin(),ls.end()));
+
+              sort(to.begin(), to.end(), greater());
+                      if (!to.empty()){anz = to[0];}    } 
+ for(int g =0; g<to.size(); g++){
+  cout << to[g] << " ";}
+
+
+auto stop = std::chrono::high_resolution_clock::now();
+auto duration = duration_cast<std::chrono::microseconds>(stop - start);
+
+cout << "\n" << duration.count() << " microseconds" ;
+}
+//Some Time
+
+
+
+
+
+
+///////////////////
+#include <iostream> 
+#include <string> 
+#include <vector> 
+#include <algorithm> 
 using namespace std; 
 class BestTravel
 {
