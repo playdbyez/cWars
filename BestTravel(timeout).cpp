@@ -9,6 +9,80 @@ public:
     static int chooseBestSum(int t, int k, std::vector<int>& ls);
 };
 
+int BestTravel::chooseBestSum(int t, int k, std::vector<int>& ls){
+vector<int> to;
+vector<int>sums;
+
+
+unsigned long mn = k;
+int x = 0;
+  int y = 0;
+int anz =-1;
+unsigned long si = ls.size();
+ 
+ if (mn >= si){return -1;}
+sort( ls.begin(), ls.end());
+  for (size_t l =0; l<mn;l++){y+=ls[l];} if(y>t){ return -1;}
+  
+    if (y<=t){
+          
+                do{ for(size_t i = 0; i<mn; i++){x+=ls[i];} if(x<=t){to.push_back(x);} x=0;}
+                                            while(next_permutation(ls.begin(),ls.end()));
+
+              sort(to.begin(), to.end(), greater());
+                      if (!to.empty()){anz = to[0];}    }        
+return anz;
+}
+          
+
+//ALL TRIALS PASSED AT:2362ms
+
+////////
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+class BestTravel
+{
+public:
+    static int chooseBestSum(int t, int k, std::vector<int>& ls);
+};
+
+int BestTravel::chooseBestSum(int t, int k, std::vector<int>& ls){
+vector<int> to;
+vector<int>sums;
+
+
+unsigned long mn = k;
+int x = 0;
+int anz =-1;
+unsigned long si = ls.size();
+ 
+ if (mn > si){return -1;}
+    if (mn<si && si != 0){
+          sort( ls.begin(), ls.end());
+                do{ for(size_t i = 0; i<mn; i++){x+=ls[i];} if(x<=t){to.push_back(x);} x=0;}
+                                            while(next_permutation(ls.begin(),ls.end()));
+
+              sort(to.begin(), to.end(), greater());
+                      if (!to.empty()){anz = to[0];}    }        
+return anz;
+}
+
+// ALL TESTS PASSED AT: 2202ms
+
+#include <iostream> 
+#include <string> 
+#include <vector> 
+#include <algorithm> 
+using namespace std; 
+class BestTravel
+{
+public:
+    static int chooseBestSum(int t, int k, std::vector<int>& ls);
+};
+
 int BestTravel::chooseBestSum(int t, int k, std::vector<int>& ls)
 {
 vector<int> to;
