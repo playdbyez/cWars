@@ -1,3 +1,9 @@
+//find position of minElement
+auto it = std::min_element(std::begin(vec), std::end(vec));
+std::cout << "index of smallest element: " << std::distance(std::begin(vec), it);
+
+
+
 #include <iostream> 
 #include <string> 
 #include <vector> 
