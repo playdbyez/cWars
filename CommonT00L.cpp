@@ -1,4 +1,6 @@
 
+//Determine lenght of a single int with a multi-digit value
+int len = to_string(n).length();
 
 //Remove specific element
 vec.erase(remove(vec.begin(), vec.end(), 0), vec.end());
