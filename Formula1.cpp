@@ -25,9 +25,10 @@ int posit = champion;
 for (size_t l=0; l< events.size(); l++)
   {
         if (!isdigit(events[l]) && isdigit(events[l-1]) && !isdigit(events[l-2])){sim.push_back(events[l-1]-48);}
+        if (!isdigit(events[l]) && isdigit(events[l-1]) && isdigit(events[l-2])){sim.push_back(events[l-1]-48 + (events[l-2]-48)*10);}
        
     }
  
   for (size_t y =0; y<sim.size(); y++){cout << sim[y]<< " ";}
 
-      }
+}
