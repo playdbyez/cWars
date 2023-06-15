@@ -3,9 +3,7 @@
 
 //If element exists in vector
 if (std:: find (v.begin(), v.end(), elem) != v.end ())
-{
-//elem exists in the vector
-}
+{/*elem exists in the vector*/}
 
 //Determine lenght of a single int with a multi-digit value
 int len = to_string(n).length();
