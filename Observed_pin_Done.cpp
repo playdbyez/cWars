@@ -271,7 +271,7 @@ if (si ==2)
  }
 }  
 
-  if (si ==7)
+  if (si ==8)
 {for (size_t n =0; n< sg.size() ; ++n){ 
       for (size_t m =0; m< db.size() ; ++m){
         for (size_t o =0; o< tl.size() ; ++o){
@@ -279,7 +279,7 @@ if (si ==2)
             for (size_t sn =0; sn< ci.size() ; ++sn){
               for (size_t sk =0; sk< sz.size() ; ++sk){
                 for (size_t sl =0; sl< sd.size() ; ++sl){
-                  for (size_t sg =0; sg< ei.size() ; ++sg){
+                  for (size_t sr =0; sr< ei.size() ; ++sr){
       bitmask += sg[n];
       bitmask += db[m];
       bitmask += tl[o];
@@ -287,7 +287,7 @@ if (si ==2)
       bitmask += ci[sn];
       bitmask += sz[sk];
       bitmask += sd[sl];
-      bitmask += ei[sg];
+      bitmask += ei[sr];
       rs.push_back(bitmask);
       bitmask = "";
          }
