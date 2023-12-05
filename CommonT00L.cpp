@@ -37,3 +37,11 @@ std::cout << "index of smallest element: " << std::distance(std::begin(vec), it)
 do{ } 
         while(next_permutation(v.begin(),v.end()));
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+//length of an Int object
+
+#include <math.h>
+ int nDigits = floor(log10(abs(VarSize))) + 1;
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
