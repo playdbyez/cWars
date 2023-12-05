@@ -48,4 +48,14 @@ int someInt = 368;
 char str[12];
 sprintf(str, "%d", someInt);
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+C// Proper initialization of Char pointer
+ // Proper Sprintf type casting and multiple insertion
+
+
+size_t size = strlen(s);
+char *buff = malloc(sizeof(s)/sizeof(char));  
+sprintf(buff, "%d/%d", upt,(int)size);
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
 
