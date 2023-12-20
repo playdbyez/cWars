@@ -1,5 +1,4 @@
-//Expected: equal to [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
-//Actual: [ 1, 2, 3, 4, 5, 6, 7, 6, 5 ]
+
 
 #include <iostream>
 #include <vector>
@@ -73,9 +72,9 @@ std::vector<int> snail(const std::vector<std::vector<int>> &snail_map) {
 }
 
 //// DONES!
+//Expected: equal to [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ]
 
-//Expected: equal to [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
-//Actual: [ 1, 2, 3, 4, 5, 6, 7, 6, 5 ]
+//Actual: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 13, 14 ]
 
 #include <iostream>
 #include <vector>
@@ -85,7 +84,7 @@ int main()
 {
     
 
-vector<std::vector<int>> snail_map = {{1,2,3}, {8,9,4}, {7,6,5}};
+vector<std::vector<int>> snail_map = {{1,2,3,4}, {12,13,14,5}, {11,16,15,6}, {10,9,8,7}};
   vector <int> sero = {} ;
   vector <int> sn = {1} ;
   vector <int> spath = {} ;
