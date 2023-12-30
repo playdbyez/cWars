@@ -85,7 +85,9 @@ int main()
            
        }
    }
-   
+
+   //Print GameBoard
+   /*
  for (int i = 0; i < tots; i++)
  {  cout << "\n";
     for (int j = 0; j < cols; j++)
@@ -93,5 +95,6 @@ int main()
         cout << board[i][j] << " ";
     } 
  }
+  */
     return 0;
 }
