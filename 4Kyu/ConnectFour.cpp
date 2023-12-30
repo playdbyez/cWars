@@ -58,30 +58,16 @@ int main()
    
    
    
-   for (size_t i = 0 ; i < pieces.size(); i++){
+  for (size_t i = 0 ; i < pieces.size(); i++){
        for (size_t j = 0 ; j < pieces[i].size(); j++){
        
-       if (pieces[i][0] == 'A'){
-           if (pieces[i][2] == 'R'){board[Alv][0] = 'X'; Alv--; break;}
-           if (pieces[i][2] == 'Y'){board[Alv][0] = 'Y'; Alv--;break;}    }
-       if (pieces[i][0] == 'B'){
-           if (pieces[i][2] == 'R'){board[Blv][1] = 'X'; Blv--;break;}
-           if (pieces[i][2] == 'Y'){board[Blv][1] = 'Y'; Blv--;break;}    }
-       if (pieces[i][0] == 'C'){
-           if (pieces[i][2] == 'R'){board[Clv][2] = 'X'; Clv--;break;}
-           if (pieces[i][2] == 'Y'){board[Clv][2] = 'Y'; Clv--;break;}    }
-       if (pieces[i][0] == 'D'){
-           if (pieces[i][2] == 'R'){board[Dlv][3] = 'X'; Dlv--;break;}
-           if (pieces[i][2] == 'Y'){board[Dlv][3] = 'Y'; Dlv--;break;}    }
-       if (pieces[i][0] == 'E'){
-           if (pieces[i][2] == 'R'){board[Elv][4] = 'X'; Elv--;break;}
-           if (pieces[i][2] == 'Y'){board[Elv][4] = 'Y'; Elv--;break;}    }  
-       if (pieces[i][0] == 'F'){
-           if (pieces[i][2] == 'R'){board[Flv][5] = 'X'; Flv--;break;}
-           if (pieces[i][2] == 'Y'){board[Flv][5] = 'Y'; Flv--;break;}    }
-       if (pieces[i][0] == 'G'){
-           if (pieces[i][2] == 'R'){board[Glv][6] = 'X'; Glv--;break;}
-           if (pieces[i][2] == 'Y'){board[Glv][6] = 'Y'; Glv--;break;}    }  
+       if (pieces[i][0] == 'A'){if (pieces[i][2] == 'R'){board[Alv][0] = 'X'; Alv--;break;}if (pieces[i][2] == 'Y'){board[Alv][0] = 'Y'; Alv--;break;}    }
+       if (pieces[i][0] == 'B'){if (pieces[i][2] == 'R'){board[Blv][1] = 'X'; Blv--;break;}if (pieces[i][2] == 'Y'){board[Blv][1] = 'Y'; Blv--;break;}    }
+       if (pieces[i][0] == 'C'){if (pieces[i][2] == 'R'){board[Clv][2] = 'X'; Clv--;break;}if (pieces[i][2] == 'Y'){board[Clv][2] = 'Y'; Clv--;break;}    }
+       if (pieces[i][0] == 'D'){if (pieces[i][2] == 'R'){board[Dlv][3] = 'X'; Dlv--;break;}if (pieces[i][2] == 'Y'){board[Dlv][3] = 'Y'; Dlv--;break;}    }
+       if (pieces[i][0] == 'E'){if (pieces[i][2] == 'R'){board[Elv][4] = 'X'; Elv--;break;}if (pieces[i][2] == 'Y'){board[Elv][4] = 'Y'; Elv--;break;}    }  
+       if (pieces[i][0] == 'F'){if (pieces[i][2] == 'R'){board[Flv][5] = 'X'; Flv--;break;}if (pieces[i][2] == 'Y'){board[Flv][5] = 'Y'; Flv--;break;}    }
+       if (pieces[i][0] == 'G'){if (pieces[i][2] == 'R'){board[Glv][6] = 'X'; Glv--;break;}if (pieces[i][2] == 'Y'){board[Glv][6] = 'Y'; Glv--;break;}    }  
            
        }
    }
