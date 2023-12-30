@@ -8,7 +8,7 @@ int main()
 {
    
     vector <string> pieces = {
-                                "C_Yellow",
+                "C_Yellow",
                 "E_Red",
                 "G_Yellow",
                 "B_Red",
