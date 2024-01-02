@@ -8,34 +8,21 @@ int main()
 {
    
     vector <string> pieces = {
-                "C_Yellow",
-                "E_Red",
-                "G_Yellow",
-                "B_Red",
-                "D_Yellow",
+                "A_Yellow",
                 "B_Red",
                 "B_Yellow",
-                "G_Red",
-                "C_Yellow",
                 "C_Red",
-                "D_Yellow",
-                "F_Red",
-                "E_Yellow",
-                "A_Red",
-                "A_Yellow",
-                "G_Red",
-                "A_Yellow",
-                "F_Red",
-                "F_Yellow",
+                "G_Yellow",
+                "C_Red",
+                "C_Yellow",
                 "D_Red",
-                "B_Yellow",
-                "E_Red",
-                "D_Yellow",
-                "A_Red",
                 "G_Yellow",
                 "D_Red",
-                "D_Yellow",
-                "C_Red"
+                "G_Yellow",
+                "D_Red",
+                "F_Yellow",
+                "E_Red",
+                "D_Yellow"
                                                      };
    
    char p1 = 'X';
@@ -82,7 +69,7 @@ int main()
                     if ( board[i+1][j] == sel){if ( board[i+2][j] == sel){if ( board[i+3][j] == sel){ ext = 1; break;}}}
                     if (board[i+1][j+1] == sel){if ( board[i+2][j+2] == sel){if ( board[i+3][j+3] == sel){ ext = 1; break;}}}
                     if (board[i+1][j-1] == sel){if ( board[i+2][j-2] == sel){if ( board[i+3][j-3] == sel){ ext = 1; break;}}}    
-                    if ( board[i][j+1] == sel){if ( board[i+2][j] == sel){if ( board[i+3][j] == sel){ ext = 1; break;}}}   
+                    if ( board[i][j+1] == sel){if ( board[i][j+2] == sel){if ( board[i][j+3] == sel){ ext = 1; break;}}}   
                     }
      }
  }
