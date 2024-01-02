@@ -38,7 +38,10 @@ int main()
                 "C_Red"
                                                      };
    
-   
+   char p1 = 'X';
+   char p2 = 'Y';
+   char sel;
+   bool ext = false;
    char board[6][7];
    
    int Alv = 5;
@@ -71,9 +74,20 @@ int main()
            
        }
    }
-
-   //Print GameBoard
-   /*
+ 
+ 
+ for (int i = 0; i < tots; i++) {  if (ext == 1){break;}
+     for (int j = 0; j < cols; j++){
+                if ( board[i][j] == p1 || board[i][j] == p2){ sel = board[i][j];
+                    if ( board[i+1][j] == sel){if ( board[i+2][j] == sel){if ( board[i+3][j] == sel){ ext = 1; break;}}}
+                    if (board[i+1][j+1] == sel){if ( board[i+2][j+2] == sel){if ( board[i+3][j+3] == sel){ ext = 1; break;}}}
+                    if (board[i+1][j-1] == sel){if ( board[i+2][j-2] == sel){if ( board[i+3][j-3] == sel){ ext = 1; break;}}}    
+                    if ( board[i][j+1] == sel){if ( board[i+2][j] == sel){if ( board[i+3][j] == sel){ ext = 1; break;}}}   
+                    }
+     }
+ }
+ 
+ //Print GameBoard
  for (int i = 0; i < tots; i++)
  {  cout << "\n";
     for (int j = 0; j < cols; j++)
@@ -81,6 +95,11 @@ int main()
         cout << board[i][j] << " ";
     } 
  }
-  */
-    return 0;
+ cout <<endl << endl;
+ 
+     if (sel == p2){cout << "Yellow wins!"<<endl;}
+     if (sel == p1){cout << "Red wins!"<<endl;}
+     if (sel != p1 && sel != p2) {cout << "Tie-Game!" <<endl;}
+ 
+   
 }
