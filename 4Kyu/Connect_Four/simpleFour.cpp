@@ -68,11 +68,11 @@ for (size_t j = 0 ; j < pieces[i].size(); j++){if (ext == 1){break;}
 if (pieces[i][0] == 'A' && pieces[i][2] == 'R'){board[Alv][0] = 'X';
     for (int i = 0; i < tots; i++) {  if (ext == 1){break;}
      for (int j = 0 ; j < cols; j++){
-                    if ( board[i][j] == p1 && board[i+1][j] == p1 ) { if(board[i+2][j] == p1 && board[i+3][j] == p1){ ext = 1;sel = p1; break;}}
-                    if ( board[i][j] == p1 && board[i-1][j] == p1 ) { if(board[i-2][j] == p1 && board[i-3][j] == p1){ ext = 1;sel = p1; break;}}
-                    if (board[i][j] == p1 && board[i+1][j+1] == p1){ if(board[i+2][j+2] == p1 &&  board[i+3][j+3] == p1){ ext = 1;sel = p1; break;}}
-                    if (board[i][j] == p1 && board[i+1][j-1] == p1){if ( board[i+2][j-2] == p1 && board[i+3][j-3] == p1){ ext = 1;sel = p1; break;}}    
-                    if (board[i][j] == p1 && board[i][j+1] == p1){if ( board[i][j+2] == p1 && board[i][j+3] == p1){ ext = 1; sel = p1; break;}}
+                    if ( board[i][j] == p1 && board[i+1][j] == p1 ) { if(board[i+2][j] == p1 && board[i+3][j] == p1){if (i+3 >= 0  && i+3 <= 6){ ext = 1;sel = p1; break;}}}
+                    if ( board[i][j] == p1 && board[i-1][j] == p1 ) { if(board[i-2][j] == p1 && board[i-3][j] == p1){if (i-3 >= 0 && i-3 <= 6){ ext = 1;sel = p1; break;}}}
+                    if (board[i][j] == p1 && board[i+1][j+1] == p1){ if(board[i+2][j+2] == p1 &&  board[i+3][j+3] == p1){if (i+3 >= 0 && i+3 <= 6){if (j+3 >= 0 && j+3 <= 6){ ext = 1;sel = p1; break;}}}}
+                    if (board[i][j] == p1 && board[i+1][j-1] == p1){if ( board[i+2][j-2] == p1 && board[i+3][j-3] == p1){if (i+3 >= 0 && i+3 <= 6){if (j-3 >= 0 && j-3 <= 6){ ext = 1;sel = p1; break;}}}}    
+                    if (board[i][j] == p1 && board[i][j+1] == p1){if ( board[i][j+2] == p1 && board[i][j+3] == p1){ if (j+3 >= 0 && j+3 <= 6){ext = 1; sel = p1; break;}}}
                     if (board[i][j] == p1 && board[i][j-1] == p1){if ( board[i][j-2] == p1 && board[i][j-3] == p1){ ext = 1;sel = p1; break;}}
                     if (board[i][j] == p1 && board[i-1][j+1] == p1){if ( board[i-2][j+2] == p1 && board[i-3][j+3] == p1){ ext = 1;sel = p1; break;}}
                     if (board[i][j] == p1 && board[i-1][j-1] == p1){if ( board[i-2][j-2] == p1 && board[i-3][j-3] == p1){ ext = 1;sel = p1; break;}}
