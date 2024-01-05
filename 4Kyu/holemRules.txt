@@ -1,0 +1,56 @@
+	N# of players 2 -10
+> One player is selected to be the Dealer
+>Dealer is selected by holdin on to the "Dealer badge"
+>Dealer shuffles 52 cards 
+
+BLiNDS: 1st two players to play and so they both must lay the Bets "blinds"  as an initial pot value
+>>Small Blind (1st player) : half the minimum Bet
+>>Big Blind (2nd player) : Minimum Bet
+
+		[$1/$2 no limit holdem]
+Means that on every hand that is dealt the blinds place their bets again at the same vale
+
+>Dealer badge is moved to the left//
+
+
+
+
+				GAME
+>Each player gets 2 cards face down
+
+>The player to the left of the Big Blind is takes the first turn
+
+TURN ACTIONS 
+- Call:	Place a bet that is equal to the previous player
+- Raise: 	Raises the Bet
+- Fold:	Exits the Current-Hand
+
+> After Big Blind makes his Turn Action the sum of all bets are put towards The Pot
+
+
+
+
+
+
+
+////
+
+A and B decided to play Texas Hold'em poker. Since they are new players, they are often arguing who wins.
+
+Help them with a program that makes this decision! Write a function that checks their cards and the common cards, and return with 'A' or 'B'. In even cases, return 'AB'!
+
+We don't check colors, the evaluation order is the following:
+
+1. Four of a Kind: 'A hand containing four cards of equal rank'
+2. Full House: 'A hand with three cards of one rank and two of a second rank'
+3. Straight: 'Contains five cards of sequential rank'
+4. Three of a Kind: 'Contains three cards of the same rank'
+5. Two pairs: 'Contains two cards of the same rank, plus two cards of another rank'
+6. One pair: 'Contains two cards of the same rank'
+7. Sum of Cards
+You don't need to filter wrong inputs, and the following characters are used only in input string:
+
+2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K, A
+The common always have 5 cards, and both A and B have 2-2. Always check the 5 best cards from the 7 cards, as the Texas Holdem rule declares.
+
+Good luck!
