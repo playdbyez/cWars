@@ -54,3 +54,39 @@ You don't need to filter wrong inputs, and the following characters are used onl
 The common always have 5 cards, and both A and B have 2-2. Always check the 5 best cards from the 7 cards, as the Texas Holdem rule declares.
 
 Good luck!
+
+
+
+
+
+
+
+
+
+//WIN CONDITIONS
+
+High Card = Ace or highest card = 1
+
+One Pair = two of the same card number = 2
+
+Two Pairs = Two of the same  x2 = 3
+
+Three of a kind = Three of the same card number = 4 
+
+//Straight = 5 cards in order, player with the highest order wins = 5
+
+
+//Flush = 5 cards of the same suit regardless of order = 6
+
+
+//Full House = three of akind + one pair = 7
+
+
+Four of akind = four cards of the same number = 8
+
+//Straight Flush = 5 cards in order while also being of the same suit = 9
+
+//Royal Flush = 10 Jack Queen King Ace of the same suit = 10
+
+
+ 
