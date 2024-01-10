@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 #include <string.h>
 
 typedef struct Hand Hand;
@@ -58,17 +57,18 @@ Hand* PokerHand (const char *cards) {
   
 }
 Result compare (Hand* player, Hand* opponent) {
-    if (p1 == 1) {p1 == 0;}
+ 
+  if (p1  == 1) {printf("Opponent-> ");}
  if (p1  == 0) {printf("Player->   "); p1 = 1;}
   
   for (int i = 0; i < 5 ; i++){printf("%d " ,rankz2[i] );}
-   printf("\n\n", player);
+   printf("\n\n");
   
   
   
   
-  if (p1  == 1) {printf("Opponent-> ");}
-  if (p1 == 0){p1 == 1;}
+  
+  
   return Loss;
 }
 
