@@ -77,19 +77,12 @@ Result compare (Hand* player, Hand* opponent) {
   
   
   
-   for (int i = 0; i < 5; i++)
-    { 
-  printf("%d " ,rankz2[i] );
-     
-     }
+  for (int i = 0; i < 5; i++){printf("%d " ,rankz2[i] );}
   printf("\n");
   
-  for (int i = 0; i < 5; i++)
-    { 
-  printf("%d " ,rankz1[i] );
-     
-     }
+  for (int i = 0; i < 5; i++){printf("%d " ,rankz1[i] );}
   printf("\n");
+  
   
   return Loss;
 }
