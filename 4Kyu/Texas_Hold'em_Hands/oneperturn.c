@@ -16,12 +16,7 @@ int molt = 0;
 // return value will be freed
 Hand* PokerHand (const char *cards) {
   
-  //Separate Hands
-  strcpy(str1, cards);
-  
-  
-  //All Ranks
-  rank1[0] = str1[0], rank1[1] = str1[3], rank1[2] = str1[6], rank1[3] = str1[9], rank1[4] = str1[12];
+rank1[0] = cards[0], rank1[1] = cards[3], rank1[2] = cards[6], rank1[3] = cards[9], rank1[4] = cards[12];
  
   
     int numb1 = strlen(rank1);
