@@ -82,3 +82,51 @@ Result compare (Hand* player, Hand* opponent) {
 //Four of akind = four cards of the same number
 //Straight Flush = 5 cards in order while also being of the same suit
 //Royal Flush = 10 Jack Queen King Ace of the same suit
+
+
+
+
+
+// CASES
+
+#include <stdlib.h>
+#include <criterion/criterion.h>
+
+typedef struct Hand Hand;
+typedef enum { Win, Loss, Tie } Result;
+
+Hand* PokerHand (const char *cards);
+Result compare (Hand* player, Hand* opponent);
+
+bool run_test_hands (Hand *player, Hand *opponent, Result outcome) {
+  Result result = compare (player, opponent);
+  return outcome == result;
+}
+
+bool run_test (const char *player, const char *opponent, Result outcome) {
+  Hand *p = PokerHand (player), *o = PokerHand (opponent);
+  bool result = run_test_hands (p, o, outcome);
+  free (p); free (o);
+  return result;
+}
+
+/*
+    "2H 3H 4H 5H 6H", "KS AS TS QS JS", ( Loss), "Highest straight flush wins"
+    "2H 3H 4H 5H 6H", "AS AD AC AH JD", ( Win ), "Straight flush wins of 4 of a kind"
+    "AS AH 2H AD AC", "JS JD JC JH 3D", ( Win ), "Highest 4 of a kind wins"
+    "2S AH 2H AS AC", "JS JD JC JH AD", ( Loss), "4 Of a kind wins of full house"
+    "2S AH 2H AS AC", "2H 3H 5H 6H 7H", ( Win ), "Full house wins of flush"
+    "AS 3S 4S 8S 2S", "2H 3H 5H 6H 7H", ( Win ), "Highest flush wins"
+    "2H 3H 5H 6H 7H", "2S 3H 4H 5S 6C", ( Win ), "Flush wins of straight"
+    "2S 3H 4H 5S 6C", "3D 4C 5H 6H 2S", ( Tie ), "Equal straight is tie"
+    "2S 3H 4H 5S 6C", "AH AC 5H 6H AS", ( Win ), "Straight wins of three of a kind"
+    "2S 3H 4H 5S AC", "AH AC 5H 6H AS", ( Win ), "Low-ace straight wins of three of a kind"
+    "2S 2H 4H 5S 4C", "AH AC 5H 6H AS", ( Loss), "3 Of a kind wins of two pair"
+    "2S 2H 4H 5S 4C", "AH AC 5H 6H 7S", ( Win ), "2 Pair wins of pair"
+    "6S AD 7H 4S AS", "AH AC 5H 6H 7S", ( Loss), "Highest pair wins"
+    "2S AH 4H 5S KC", "AH AC 5H 6H 7S", ( Loss), "Pair wins of nothing"
+    "2S 3H 6H 7S 9C", "7H 3C TH 6H 9S", ( Loss), Highest card loses"
+    "4S 5H 6H TS AC", "3S 5H 6H TS AC", ( Win ), "Highest card wins"
+    "2S AH 4H 5S 6C", "AD 4C 5H 6H 2C", ( Tie ), "Equal cards is tie"
+*/
+
