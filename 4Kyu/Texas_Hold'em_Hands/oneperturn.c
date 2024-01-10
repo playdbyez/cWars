@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 #include <string.h>
 
 typedef struct Hand Hand;
@@ -10,9 +11,9 @@ char suit1[10], suit2[10];
 
 int rankz1[11];
 int rankz2[11] ;
-
+int p1 = 0;
 int molt = 0;
-int wolt = 0;
+
 // return value will be freed
 Hand* PokerHand (const char *cards) {
   
@@ -45,30 +46,29 @@ Hand* PokerHand (const char *cards) {
   }
   
   
-  for (int i = 0; i < 5; i++){printf("%d " ,rankz1[i] );}
-  printf("\n\n");
+  for (int i = 0; i < 5; i++){rankz2[i] = rankz1[i];}
+  
   
   memset(str1, 0, sizeof str1);
   memset(rankz1, 0, sizeof rankz1);
   memset(rank1, 0, sizeof rank1);
   molt = 0;
+
   return 0;
   
 }
-
 Result compare (Hand* player, Hand* opponent) {
+    if (p1 == 1) {p1 == 0;}
+ if (p1  == 0) {printf("Player->   "); p1 = 1;}
   
-
-  
-  //returns zeros
-  //for (int i = 0; i < 5; i++){printf("%d " ,rankz1[i] );}
-  //printf("\n\n");
-  
-  
- 
+  for (int i = 0; i < 5 ; i++){printf("%d " ,rankz2[i] );}
+   printf("\n\n", player);
   
   
   
+  
+  if (p1  == 1) {printf("Opponent-> ");}
+  if (p1 == 0){p1 == 1;}
   return Loss;
 }
 
