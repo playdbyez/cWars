@@ -10,30 +10,16 @@ char suit1[10], suit2[10];
 
 int rankz1[11];
 int rankz2[11] ;
-
+int p1 = 0;
 int molt = 0;
-int wolt = 0;
+
 // return value will be freed
 Hand* PokerHand (const char *cards) {
   
-  //Separate Hands
-  while (strlen(str1) < 14){strcpy(str1, cards);}     strcpy(str2, cards);
+rank1[0] = cards[0], rank1[1] = cards[3], rank1[2] = cards[6], rank1[3] = cards[9], rank1[4] = cards[12];
+ 
   
-  //All Ranks
-  rank1[0] = str1[0], rank1[1] = str1[3], rank1[2] = str1[6], rank1[3] = str1[9], rank1[4] = str1[12];
-  rank2[0] = str2[0], rank2[1] = str2[3], rank2[2] = str2[6], rank2[3] = str2[9], rank2[4] = str2[12];
-  
-   
-
-  
-  
-  return 0;
-  
-}
-
-Result compare (Hand* player, Hand* opponent) {
-  
- int numb1 = strlen(rank1), numb2 = strlen(rank2);
+    int numb1 = strlen(rank1);
   
    for (int i = 0; i < numb1; i++)
     {   
@@ -54,34 +40,28 @@ Result compare (Hand* player, Hand* opponent) {
   }
   
   
+  for (int i = 0; i < 5; i++){rankz2[i] = rankz1[i];}
   
   
-   for (int i = 0; i < numb2; i++)
-    {   
-     
-        if (rank2[i] == 'A'){rankz2[wolt] = rank2[i]-55;wolt++;}
-        if (rank2[i] == 'T'){rankz2[wolt] = rank2[i]-74;wolt++;}
-        if (rank2[i] == 'J'){rankz2[wolt] = rank2[i]-63;wolt++;}
-        if (rank2[i] == 'Q'){rankz2[wolt] = rank2[i]-69;wolt++;}
-        if (rank2[i] == 'K'){rankz2[wolt] = rank2[i]-62;wolt++;}    
-     if (rank2[i] == '2'){rankz2[wolt] = rank2[i]-48;wolt++;}
-     if (rank2[i] == '3'){rankz2[wolt] = rank2[i]-48;wolt++;}
-     if (rank2[i] == '4'){rankz2[wolt] = rank2[i]-48;wolt++;}
-     if (rank2[i] == '5'){rankz2[wolt] = rank2[i]-48;wolt++;}
-     if (rank2[i] == '6'){rankz2[wolt] = rank2[i]-48;wolt++;}
-     if (rank2[i] == '7'){rankz2[wolt] = rank2[i]-48;wolt++;}
-     if (rank2[i] == '8'){rankz2[wolt] = rank2[i]-48;wolt++;}
-     if (rank2[i] == '9'){rankz2[wolt] = rank2[i]-48;wolt++;}
-  }
+  memset(str1, 0, sizeof str1);
+  memset(rankz1, 0, sizeof rankz1);
+  memset(rank1, 0, sizeof rank1);
+  molt = 0;
+
+  return 0;
+  
+}
+Result compare (Hand* player, Hand* opponent) {
+ 
+  if (p1  == 1) {printf("Opponent-> ");}
+ if (p1  == 0) {printf("Player->   "); p1 = 1;}
+  
+  for (int i = 0; i < 5 ; i++){printf("%d " ,rankz2[i] );}
+   printf("\n\n");
   
   
   
   
-  for (int i = 0; i < 5; i++){printf("%d " ,rankz2[i] );}
-  printf("\n");
-  
-  for (int i = 0; i < 5; i++){printf("%d " ,rankz1[i] );}
-  printf("\n");
   
   
   return Loss;
@@ -102,3 +82,50 @@ Result compare (Hand* player, Hand* opponent) {
 //Four of akind = four cards of the same number
 //Straight Flush = 5 cards in order while also being of the same suit
 //Royal Flush = 10 Jack Queen King Ace of the same suit
+
+
+
+
+
+// CASES
+
+#include <stdlib.h>
+#include <criterion/criterion.h>
+
+typedef struct Hand Hand;
+typedef enum { Win, Loss, Tie } Result;
+
+Hand* PokerHand (const char *cards);
+Result compare (Hand* player, Hand* opponent);
+
+bool run_test_hands (Hand *player, Hand *opponent, Result outcome) {
+  Result result = compare (player, opponent);
+  return outcome == result;
+}
+
+bool run_test (const char *player, const char *opponent, Result outcome) {
+  Hand *p = PokerHand (player), *o = PokerHand (opponent);
+  bool result = run_test_hands (p, o, outcome);
+  free (p); free (o);
+  return result;
+}
+
+/*
+    "2H 3H 4H 5H 6H", "KS AS TS QS JS", ( Loss), "Highest straight flush wins"
+    "2H 3H 4H 5H 6H", "AS AD AC AH JD", ( Win ), "Straight flush wins of 4 of a kind"
+    "AS AH 2H AD AC", "JS JD JC JH 3D", ( Win ), "Highest 4 of a kind wins"
+    "2S AH 2H AS AC", "JS JD JC JH AD", ( Loss), "4 Of a kind wins of full house"
+    "2S AH 2H AS AC", "2H 3H 5H 6H 7H", ( Win ), "Full house wins of flush"
+    "AS 3S 4S 8S 2S", "2H 3H 5H 6H 7H", ( Win ), "Highest flush wins"
+    "2H 3H 5H 6H 7H", "2S 3H 4H 5S 6C", ( Win ), "Flush wins of straight"
+    "2S 3H 4H 5S 6C", "3D 4C 5H 6H 2S", ( Tie ), "Equal straight is tie"
+    "2S 3H 4H 5S 6C", "AH AC 5H 6H AS", ( Win ), "Straight wins of three of a kind"
+    "2S 3H 4H 5S AC", "AH AC 5H 6H AS", ( Win ), "Low-ace straight wins of three of a kind"
+    "2S 2H 4H 5S 4C", "AH AC 5H 6H AS", ( Loss), "3 Of a kind wins of two pair"
+    "2S 2H 4H 5S 4C", "AH AC 5H 6H 7S", ( Win ), "2 Pair wins of pair"
+    "6S AD 7H 4S AS", "AH AC 5H 6H 7S", ( Loss), "Highest pair wins"
+    "2S AH 4H 5S KC", "AH AC 5H 6H 7S", ( Loss), "Pair wins of nothing"
+    "2S 3H 6H 7S 9C", "7H 3C TH 6H 9S", ( Loss), Highest card loses"
+    "4S 5H 6H TS AC", "3S 5H 6H TS AC", ( Win ), "Highest card wins"
+    "2S AH 4H 5S 6C", "AD 4C 5H 6H 2C", ( Tie ), "Equal cards is tie"
+*/
