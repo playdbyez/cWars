@@ -23,13 +23,13 @@ int rankz2[11] ;
 int p1 = 0;
 int molt = 0;
 
-
-int ay = 1, tn = 1, jk = 1, qn =1, kg =1;
-int tw = 1, tr = 1, fr = 1, fv =1, sx =1, sv = 1, et = 1, ni =1;
+int pcnt = 0;
+int ay = 0, tn = 0, jk = 0, qn =0, kg =0;
+int tw = 0, tr = 0, fr = 0, fv =0, sx =0, sv = 0, et = 0, ni =0;
 
 int pair    = 0;
 int topair  = 0;
-int tripl   = 0;
+int trpl   = 0;
 int strt    = 0;
 int flsh    = 0;
 int fullh   = 0;
@@ -69,17 +69,35 @@ suit1[0] = cards[1], suit1[1] = cards[4],  suit1[2] = cards[7], suit1[3] = cards
   
 
   
-   for (int i = 0; i < numb1; i++)
+   for (int i = 0; i < numb1; i++){pcnt = 0;
+    for (int j = 0; j < numb1; j++)
     {
-     
+     if (rankz1[i] == rankz1[j]){pcnt++; 
+                                    if (pcnt == 1){pair = 1; } 
+                                        if (pcnt == 2){pair = 0; trpl=1;}
+                                            if (pcnt == 3){pair = 0;trpl = 0; quad = 1;}
+                                }
      
      
      
     }
+if (pair   != 0){printf("One Pair\n");}
+if (topair != 0){printf("Two Pairs\n");}
+if (trpl  != 0){printf("Triple Combo\n");}
+if (strt   != 0){printf("5 in order\n");}
+if (flsh   != 0){printf("One Suit hand\n");}                                   
+if (fullh  != 0){printf("Triple plus a Pair\n");}
+if (quad   != 0){printf("Quad Combo\n");}
+if (sflsh  != 0){printf("Straight Flaunt\n");}
+if (rflsh  != 0){printf("Royal Faux\n");}
+                                 
+  }
   
   
   
-  if (p1  == 1) {printf("Opponent-> \n");}
+ 
+  
+ if (p1  == 1) {printf("Opponent-> \n");}
  if (p1  == 0) {printf("Player->  \n"); p1 = 1;}
   
   for (int i = 0; i < 5 ; i++){printf("%d " ,rankz1[i] );}
@@ -108,6 +126,21 @@ Result compare (Hand* player, Hand* opponent) {
   return Loss;
 }
 
+
+
+
+
+
+//WIN CONDITIONS
+//One Pair = two of the same card number
+//Two Pairs = Two of the same  x2
+//Three of a kind = Three of the same card number
+//Straight = 5 cards in order, player with the highest order wins
+//Flush = 5 cards of the same suit regardless of order
+//Full House = three of akind + one pair
+//Four of akind = four cards of the same number
+//Straight Flush = 5 cards in order while also being of the same suit
+//Royal Flush = 10 Jack Queen King Ace of the same suit
 
 
 
