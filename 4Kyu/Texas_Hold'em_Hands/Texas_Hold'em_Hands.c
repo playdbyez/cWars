@@ -1,8 +1,18 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 typedef struct Hand Hand;
 typedef enum { Win, Loss, Tie } Result;
+
+//Compare method for QSort function
+int comp(const void *a,const void *b) {
+                                        int x = *((int *) a);
+                                        int y = *((int *) b);
+                                        if (x > y){return 1;}
+                                        if (y > x){return -1;}
+                                                                              }
+
 char str1[15], str2[15];
 
 char rank1[10], rank2[10];
@@ -13,6 +23,22 @@ int rankz2[11] ;
 int p1 = 0;
 int molt = 0;
 
+
+int ay = 1, tn = 1, jk = 1, qn =1, kg =1;
+int tw = 1, tr = 1, fr = 1, fv =1, sx =1, sv = 1, et = 1, ni =1;
+
+int pair    = 0;
+int topair  = 0;
+int tripl   = 0;
+int strt    = 0;
+int flsh    = 0;
+int fullh   = 0;
+int quad    = 0;
+int sflsh   = 0;
+int rflsh   = 0;
+
+
+
 // return value will be freed
 Hand* PokerHand (const char *cards) {
   
@@ -20,6 +46,7 @@ rank1[0] = cards[0], rank1[1] = cards[3], rank1[2] = cards[6], rank1[3] = cards[
 suit1[0] = cards[1], suit1[1] = cards[4],  suit1[2] = cards[7], suit1[3] = cards[10], suit1[4] = cards[13];
   
     int numb1 = strlen(rank1);
+    int numb2 = strlen(suit1);
   
    for (int i = 0; i < numb1; i++)
     {   
@@ -37,7 +64,18 @@ suit1[0] = cards[1], suit1[1] = cards[4],  suit1[2] = cards[7], suit1[3] = cards
      if (rank1[i] == '8'){rankz1[molt] = rank1[i]-48;molt++;}
      if (rank1[i] == '9'){rankz1[molt] = rank1[i]-48;molt++;}
   }
+  qsort (rankz1,5, sizeof *rankz1,comp);
   
+  
+
+  
+   for (int i = 0; i < numb1; i++)
+    {
+     
+     
+     
+     
+    }
   
   
   
@@ -59,7 +97,7 @@ suit1[0] = cards[1], suit1[1] = cards[4],  suit1[2] = cards[7], suit1[3] = cards
   
 }
 Result compare (Hand* player, Hand* opponent) {
- 
+ p1 =0;
   
   
   
@@ -67,8 +105,24 @@ Result compare (Hand* player, Hand* opponent) {
   
   
   
-  return Win;
+  return Loss;
 }
+
+
+
+
+
+
+//WIN CONDITIONS
+//One Pair = two of the same card number
+//Two Pairs = Two of the same  x2
+//Three of a kind = Three of the same card number
+//Straight = 5 cards in order, player with the highest order wins
+//Flush = 5 cards of the same suit regardless of order
+//Full House = three of akind + one pair
+//Four of akind = four cards of the same number
+//Straight Flush = 5 cards in order while also being of the same suit
+//Royal Flush = 10 Jack Queen King Ace of the same suit
 
 
 
