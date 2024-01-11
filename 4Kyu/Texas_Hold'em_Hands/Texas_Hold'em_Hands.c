@@ -24,7 +24,7 @@ rank1[0] = cards[0], rank1[1] = cards[3], rank1[2] = cards[6], rank1[3] = cards[
    for (int i = 0; i < numb1; i++)
     {   
      
-        if (rank1[i] == 'A'){rankz1[molt] = rank1[i]-55;molt++;}
+        if (rank1[i] == 'A'){rankz1[molt] = rank1[i]-64;molt++;}
         if (rank1[i] == 'T'){rankz1[molt] = rank1[i]-74;molt++;}
         if (rank1[i] == 'J'){rankz1[molt] = rank1[i]-63;molt++;}
         if (rank1[i] == 'Q'){rankz1[molt] = rank1[i]-69;molt++;}
@@ -41,6 +41,12 @@ rank1[0] = cards[0], rank1[1] = cards[3], rank1[2] = cards[6], rank1[3] = cards[
   
   
   for (int i = 0; i < 5; i++){rankz2[i] = rankz1[i];}
+  
+  if (p1  == 1) {printf("Opponent-> ");}
+ if (p1  == 0) {printf("Player->   "); p1 = 1;}
+  
+  for (int i = 0; i < 5 ; i++){printf("%d " ,rankz2[i] );}
+   printf("\n\n");
   
   
   memset(str1, 0, sizeof str1);
@@ -64,7 +70,7 @@ Result compare (Hand* player, Hand* opponent) {
   
   
   
-  return Loss;
+  return Win;
 }
 
 
