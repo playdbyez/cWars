@@ -17,13 +17,12 @@ int molt = 0;
 Hand* PokerHand (const char *cards) {
   
 rank1[0] = cards[0], rank1[1] = cards[3], rank1[2] = cards[6], rank1[3] = cards[9], rank1[4] = cards[12];
- 
+suit1[0] = cards[1], suit1[1] = cards[4],  suit1[2] = cards[7], suit1[3] = cards[10], suit1[4] = cards[13];
   
     int numb1 = strlen(rank1);
   
    for (int i = 0; i < numb1; i++)
     {   
-     
         if (rank1[i] == 'A'){rankz1[molt] = rank1[i]-64;molt++;}
         if (rank1[i] == 'T'){rankz1[molt] = rank1[i]-74;molt++;}
         if (rank1[i] == 'J'){rankz1[molt] = rank1[i]-63;molt++;}
@@ -40,12 +39,14 @@ rank1[0] = cards[0], rank1[1] = cards[3], rank1[2] = cards[6], rank1[3] = cards[
   }
   
   
-  for (int i = 0; i < 5; i++){rankz2[i] = rankz1[i];}
   
-  if (p1  == 1) {printf("Opponent-> ");}
- if (p1  == 0) {printf("Player->   "); p1 = 1;}
   
-  for (int i = 0; i < 5 ; i++){printf("%d " ,rankz2[i] );}
+  if (p1  == 1) {printf("Opponent-> \n");}
+ if (p1  == 0) {printf("Player->  \n"); p1 = 1;}
+  
+  for (int i = 0; i < 5 ; i++){printf("%d " ,rankz1[i] );}
+  printf("\n");
+  for (int i = 0; i < 5 ; i++){printf("%c " ,suit1[i] );}
    printf("\n\n");
   
   
@@ -59,11 +60,7 @@ rank1[0] = cards[0], rank1[1] = cards[3], rank1[2] = cards[6], rank1[3] = cards[
 }
 Result compare (Hand* player, Hand* opponent) {
  
-  if (p1  == 1) {printf("Opponent-> ");}
- if (p1  == 0) {printf("Player->   "); p1 = 1;}
   
-  for (int i = 0; i < 5 ; i++){printf("%d " ,rankz2[i] );}
-   printf("\n\n");
   
   
   
@@ -72,6 +69,8 @@ Result compare (Hand* player, Hand* opponent) {
   
   return Win;
 }
+
+
 
 
 
