@@ -1,8 +1,18 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 typedef struct Hand Hand;
 typedef enum { Win, Loss, Tie } Result;
+
+//Compare method for QSort function
+int comp(const void *a,const void *b) {
+                                        int x = *((int *) a);
+                                        int y = *((int *) b);
+                                        if (x > y){return 1;}
+                                        if (y > x){return -1;}
+                                                                              }
+
 char str1[15], str2[15];
 
 char rank1[10], rank2[10];
@@ -13,18 +23,34 @@ int rankz2[11] ;
 int p1 = 0;
 int molt = 0;
 
+int pcnt = 0;
+int ay = 0, tn = 0, jk = 0, qn =0, kg =0;
+int tw = 0, tr = 0, fr = 0, fv =0, sx =0, sv = 0, et = 0, ni =0;
+
+int pair    = 0;
+int topair  = 0;
+int tripl   = 0;
+int strt    = 0;
+int flsh    = 0;
+int fullh   = 0;
+int quad    = 0;
+int sflsh   = 0;
+int rflsh   = 0;
+
+
+
 // return value will be freed
 Hand* PokerHand (const char *cards) {
   
 rank1[0] = cards[0], rank1[1] = cards[3], rank1[2] = cards[6], rank1[3] = cards[9], rank1[4] = cards[12];
- 
+suit1[0] = cards[1], suit1[1] = cards[4],  suit1[2] = cards[7], suit1[3] = cards[10], suit1[4] = cards[13];
   
     int numb1 = strlen(rank1);
+    int numb2 = strlen(suit1);
   
    for (int i = 0; i < numb1; i++)
     {   
-     
-        if (rank1[i] == 'A'){rankz1[molt] = rank1[i]-55;molt++;}
+        if (rank1[i] == 'A'){rankz1[molt] = rank1[i]-64;molt++;}
         if (rank1[i] == 'T'){rankz1[molt] = rank1[i]-74;molt++;}
         if (rank1[i] == 'J'){rankz1[molt] = rank1[i]-63;molt++;}
         if (rank1[i] == 'Q'){rankz1[molt] = rank1[i]-69;molt++;}
@@ -38,9 +64,46 @@ rank1[0] = cards[0], rank1[1] = cards[3], rank1[2] = cards[6], rank1[3] = cards[
      if (rank1[i] == '8'){rankz1[molt] = rank1[i]-48;molt++;}
      if (rank1[i] == '9'){rankz1[molt] = rank1[i]-48;molt++;}
   }
+  qsort (rankz1,5, sizeof *rankz1,comp);
   
   
-  for (int i = 0; i < 5; i++){rankz2[i] = rankz1[i];}
+
+  
+   for (int i = 0; i < numb1; i++){pcnt = 0;
+    for (int j = 0; j < numb1; j++)
+    {
+     if (rankz1[i] == rankz1[j]){pcnt++; 
+                                    if (pcnt == 1){pair = 1; } 
+                                        if (pcnt == 2){pair = 0; trpl=1;}
+                                            if (pcnt == 3){trpl = 0; quad = 1;}
+                                }
+     
+     
+     
+    }
+if (pair != 0){}
+if (topair != 0){}
+if (tripl != 0){}
+if (strt != 0){}
+if (flsh != 0){}                                   
+/*                                   
+int strt    = 0;
+int flsh    = 0;
+int fullh   = 0;
+int quad    = 0;
+int sflsh   = 0;
+int rflsh   = 0;                            
+ */ 
+  }
+  
+  
+ if (p1  == 1) {printf("Opponent-> \n");}
+ if (p1  == 0) {printf("Player->  \n"); p1 = 1;}
+  
+  for (int i = 0; i < 5 ; i++){printf("%d " ,rankz1[i] );}
+  printf("\n");
+  for (int i = 0; i < 5 ; i++){printf("%c " ,suit1[i] );}
+   printf("\n\n");
   
   
   memset(str1, 0, sizeof str1);
@@ -52,12 +115,8 @@ rank1[0] = cards[0], rank1[1] = cards[3], rank1[2] = cards[6], rank1[3] = cards[
   
 }
 Result compare (Hand* player, Hand* opponent) {
- 
-  if (p1  == 1) {printf("Opponent-> ");}
- if (p1  == 0) {printf("Player->   "); p1 = 1;}
+ p1 =0;
   
-  for (int i = 0; i < 5 ; i++){printf("%d " ,rankz2[i] );}
-   printf("\n\n");
   
   
   
