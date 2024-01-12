@@ -98,6 +98,7 @@ qsort (unsorted_list,20, sizeof *unsorted_list,comp);
 //Random Number Generator within range min - max
 
 #include <stdlib.h>
+#include <time.h>
 srand (time(NULL));
 int range = max - min +1;
 int num = rand() %range + min;
