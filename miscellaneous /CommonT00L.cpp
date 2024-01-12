@@ -1,4 +1,4 @@
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::#########         C++         ###########:::::::::::::::::::::::::::::::::::::::::::::::::
 //Timer
 #include<chrono>
 auto start = std::chrono::high_resolution_clock::now();
@@ -42,19 +42,35 @@ std::cout << "index of smallest element: " << std::distance(std::begin(vec), it)
 //Do/While
 do{ } 
         while(next_permutation(v.begin(),v.end()));
+
+
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-C //length of an Int object
+//Random Number Generator within range min - max
+
+#include <random>
+int range = max - min + 1;
+int num = rand() % range + min;
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+:::::::::::::::::::::::::::::::::::::::::::::#########         C           ###########:::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+//length of an Int object
 
 #include <math.h>
  int nDigits = floor(log10(abs(VarSize))) + 1;
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-C // to_string version of C 
+// to_string version of C 
 
 int someInt = 368;
 char str[12];
 sprintf(str, "%d", someInt);
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-C// Proper initialization of Char pointer
+// Proper initialization of Char pointer
  // Proper Sprintf type casting and multiple insertion
 
 
@@ -62,6 +78,21 @@ size_t size = strlen(s);
 char *buff = malloc(sizeof(s)/sizeof(char));  
 sprintf(buff, "%d/%d", upt,(int)size);
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+// Sort function
+// the comp struct will return a negative (-1) in order to sort a list in Ascending order
+// List can also be sorted in Descending order by returning a positive value (1)
+
+int comp(const void *a,const void *b) {
+                                        int x = *((int *) a);
+                                        int y = *((int *) b);
+                                        if (x > y){return 1;}
+                                        if (y > x){return -1;}
+                                                                              }
+
+char unsorted_list [20]
+qsort (unsorted_list,20, sizeof *unsorted_list,comp);
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 
 
