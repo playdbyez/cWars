@@ -7,7 +7,9 @@ std::string password_gen() {
 
   string pass;
   
-  
+  bool lc = false;
+  bool uc = false;
+  bool nu = false;
   
   int min = 6;
   int max = 20;
@@ -20,16 +22,28 @@ int nub = 57 - 48 ;
 size_t num = rand() %range + min;
   
   for (size_t i = 0; i < num; i++){
-    pox = rand() % 3 +1;
+    pox = rand() % 4 +1;
    
     if (pox == 1){ pass+= rand() % ups + 65;} 
     if (pox == 2){ pass+= rand() % low + 97;}
     if (pox == 3){ pass+= rand() % nub + 48;} 
                                 
   }
-  cout << pass << endl;
   
-  //A function that checks whats missing and adds it at the cost of a a random character already in the string
-  return pass;
+  
+            for (int j = 0; j < pass.size(); j++)
+            {
+             if (islower(pass[j])) {lc = true;}
+             if (isupper(pass[j])) {uc = true;}
+             if (isdigit(pass[j])) {nu = true;}
+              
+                            if (j == pass.size()-1){ if (lc == false){pass[rand() %6  ] = rand() % (122 - 97) + 97;}
+                                                     if (uc == false){pass[rand() %6 ] = rand() % (90 - 65) + 65;}
+                                                     if (nu == false){pass[rand() %6 ] = rand() % (57 - 48) +48;}
+                                                 }
+
+            }
+  cout << pass << endl;
+return pass;
   
 }
