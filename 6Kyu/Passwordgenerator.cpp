@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-std::string password_gen() {
+int main () {
 
   string pass;
   
@@ -22,7 +22,7 @@ int nub = 57 - 48 ;
 size_t num = rand() %range + min;
   
   for (size_t i = 0; i < num; i++){
-    pox = rand() % 4 +1;
+    pox = rand() % 3 +1;
    
     if (pox == 1){ pass+= rand() % ups + 65;} 
     if (pox == 2){ pass+= rand() % low + 97;}
@@ -37,13 +37,13 @@ size_t num = rand() %range + min;
              if (isupper(pass[j])) {uc = true;}
              if (isdigit(pass[j])) {nu = true;}
               
-                            if (j == pass.size()-1){ if (lc == false){pass[rand() %6  ] = rand() % (122 - 97) + 97;}
-                                                     if (uc == false){pass[rand() %6 ] = rand() % (90 - 65) + 65;}
-                                                     if (nu == false){pass[rand() %6 ] = rand() % (57 - 48) +48;}
+                            if (j == pass.size()-1){ if (lc == false){cout << "LL" <<endl;pass[rand() %6 +1 ] = rand() % (122 - 97) + 97;}
+                                                     if (uc == false){cout << "Uc" <<endl;pass[rand() %9 +1] = rand() % (90 - 65) + 65;}
+                                                     if (nu == false){cout << "NU" <<endl;pass[rand() %8 +1 ] = rand() % (57 - 48) +48;}
                                                  }
 
             }
   cout << pass << endl;
-return pass;
+
   
 }
