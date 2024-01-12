@@ -10,6 +10,7 @@ uniform_int_distribution<int> dist(1,3);
 uniform_int_distribution<int> ups(65 , 90);
 uniform_int_distribution<int> low(97 , 122);
 uniform_int_distribution<int> nub(48 , 57);
+uniform_int_distribution<int> siz(6 , 20);
   string pass;
   
   bool lc = false;
@@ -22,7 +23,7 @@ uniform_int_distribution<int> nub(48 , 57);
  
   int pox = 0;
   
-size_t num = rand() %range + min;
+size_t num = siz(rd);
   
   for (size_t i = 0; i < num; i++){
     pox = dist(rd);
