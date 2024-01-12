@@ -46,7 +46,8 @@ do{ }
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 //Random Number Generator within range min - max
-
+//Srand will maintain the random value stored and consistant
+//Remove srand for more variance
 #include <cstdlib>
 srand (time(NULL));
 int range = max - min +1;
