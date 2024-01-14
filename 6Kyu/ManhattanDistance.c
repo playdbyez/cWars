@@ -21,11 +21,11 @@ unsigned verx= sizeof board / horiz;
 //Player Start Position
 int playsx = a[0]-1;
 int playsy = a[1]-1;
-
+//PDestination Position
 int destx = b[0]-1;
 int desty = b[1]-1;
 
-
+// Populate Map
 for (int t = 0; t < horiz; t++ )
 {for (int p = 0; p < verx; p++ )
  {
@@ -37,8 +37,6 @@ for (int t = 0; t < horiz; t++ )
 
 while (inc < sizeof board)
 {
-
-
   (playsx < destx) ? playsx++: playsx--;
   board[playsx][playsy] = turns;turns ++;
   (playsy < desty) ? playsy++: playsy --;
@@ -49,14 +47,11 @@ while (inc < sizeof board)
 inc++;
 }
 
-
-
-
+//Display Map
 for (int t = 0; t < verx; t++ )
 {for (int p = 0; p < horiz; p++ )
- {printf("%c", board[t][p]); }
- printf("\n");
+ {printf("%c", board[t][p]); }printf("\n");
 }
 
- 
+ return 0;
 }
