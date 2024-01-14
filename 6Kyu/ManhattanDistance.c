@@ -3,8 +3,7 @@
 
 int main()
 {
-    int a[2] = {5, 4}; 
-    int b[2] = {3, 2};
+    int a[2] = {5, 4}; int b[2] = {3, 2};
     unsigned ext = 0;
     unsigned inc = 0;
     char turns = '1';
@@ -18,10 +17,12 @@ char board[botala+1][totala+1];
 unsigned horiz= sizeof board[0];
 unsigned verx= sizeof board / horiz;
 
-//Player Start Position
-int playsx = a[0]-1;
-int playsy = a[1]-1;
-//PDestination Position
+//Player Start Position and add the minus to the destination
+int playsx = a[0];
+if (playsx > 0) {playsx-=1;}
+int playsy = a[1];
+if (playsy > 0) {playsy=-1;}
+//Destination Position
 int destx = b[0]-1;
 int desty = b[1]-1;
 
@@ -37,6 +38,7 @@ for (int t = 0; t < horiz; t++ )
 
 while (inc < sizeof board)
 {
+    if (playsx == destx && playsy == desty){ break;}
   (playsx < destx) ? playsx++: playsx--;
   board[playsx][playsy] = turns;turns ++;
   (playsy < desty) ? playsy++: playsy --;
@@ -53,5 +55,5 @@ for (int t = 0; t < verx; t++ )
  {printf("%c", board[t][p]); }printf("\n");
 }
 
- return 0;
+ 
 }
