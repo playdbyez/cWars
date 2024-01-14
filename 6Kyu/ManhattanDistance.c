@@ -34,28 +34,21 @@ for (int t = 0; t < horiz; t++ )
   if (t == destx && p  == desty ){board[t][p] = 'Z';} 
  }
 }
-// Omit bellow
+
 while (inc < sizeof board)
 {
 
-for (int i = 0; i < horiz; i++ ){ 
-    
-    for (int j = 0; j < verx; j++ )
- {
+
   (playsx < destx) ? playsx++: playsx--;
+  board[playsx][playsy] = turns;turns ++;
   (playsy < desty) ? playsy++: playsy --;
+  board[playsx][playsy] = turns;turns ++;
   
-  board[playsx][playsy] = turns;
-  if (playsx == destx && playsy == desty){ext = 1; break;}
- }
-}
+  if (playsx == destx && playsy == desty){ break;}
 
 inc++;
-turns ++;
-if (ext == 1) {break;}
-
 }
-// Omit above
+
 
 
 
