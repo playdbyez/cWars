@@ -4,7 +4,7 @@
 
 int main()
 {
-    int a[2] = {1, 1}; int b[2] = {0, 3};
+    int a[2] = {80, 20}; int b[2] = {46, 90};
     unsigned inc = 0;
     unsigned anz = 1;
     char turns = '1';
@@ -52,8 +52,16 @@ while (inc < sizeof board)
   if (playsx == destx && playsy == desty){ break;}
   board[playsx][playsy] = turns;
   turns ++;  anz++;}
+  
+  
 
 inc++;
+}
+
+//Display Map
+for (int t = 0; t < verx; t++ )
+{for (int p = 0; p < horiz; p++ )
+ {printf("%c", board[t][p]); }printf("\n");
 }
 
 printf("\n %d", anz);
