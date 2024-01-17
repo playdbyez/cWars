@@ -93,7 +93,7 @@ int main()
   int botala = a[1] > b[1] ?  a[1]: b[1];
   
   if (totala  == 1) {totala = 2;}
-char board[botala+1][totala+1];
+char board[botala+4][totala+4];
 
 unsigned horiz= sizeof board[0];
 unsigned verx= sizeof board / horiz;
@@ -105,9 +105,9 @@ if (playsx > 0) {playsx-=1;}
 int playsy = a[1]+1;
 if (playsy > 0) {playsy-=1;}
 //Destination Position
-int destx = b[0]+1;;
+int destx = b[0]+1;
 if (destx > 0) {destx-=1;}
-int desty = b[1]+1;;
+int desty = b[1]+1;
 if (desty > 0) {desty-=1;}
 
 
@@ -116,55 +116,50 @@ for (int t = 0; t < horiz; t++ )
 {for (int p = 0; p < verx; p++ )
  {
   board[t][p] = 'O';
-  if (t == playsx && p  == playsy){board[t][p] = 'X';}
-  if (t == destx && p  == desty ){board[t][p] = 'Z';} 
  }
 }
+  board[playsx][playsy] = 'X';
+  board[destx][desty] = 'Z';
 
 while (inc < sizeof board)
 {
-    if (playsx > destx && playsy == desty){ playsx--;
-				        turns ++; anz++;
-					board[playsx][playsy] = turns;
-    if (playsx == destx && playsy == desty){ break;}}
-  
+    if (playsx != destx && playsy == desty ){
+  if (playsx < destx && playsy == desty){ playsx++;turns ++; anz++;  board[playsx][playsy] = turns;}//up
+  if (playsx > destx && playsy == desty){ playsx--;turns ++; anz++;  board[playsx][playsy] = turns;}//down
+    }
+    if (playsx == destx && playsy == desty){ break;}
 
-
-    if (playsx < destx && playsy == desty){ playsx++;
-				        turns ++; anz++;
-					board[playsx][playsy] = turns;
-    if (playsx == destx && playsy == desty){ break;}}
-
-
- if (playsxy > desty && playsx == destx){ playsy--;
-				        turns ++; anz++;
-					board[playsx][playsy] = turns;
-    if (playsx == destx && playsy == desty){ break;}}
-  
-
-
-    if (playsy < desty && playsx == destx){ playsy++;
-				        turns ++; anz++;
-					board[playsx][playsy] = turns;
-    if (playsx == destx && playsy == desty){ break;}}
-
+    
+    if (playsx != destx && playsy != desty ){
+  if (playsx < destx && playsy > desty){ playsx++;playsy--;turns ++; anz++;  board[playsx][playsy] = turns;} //down left
+  if (playsx < destx && playsy < desty){ playsx++;playsy++;turns ++; anz++;  board[playsx][playsy] = turns;} //down right
+  if (playsx > destx && playsy > desty){ playsx--;playsy--;turns ++; anz++;  board[playsx][playsy] = turns;} //up left
+  if (playsx > destx && playsy < desty){ playsx--;playsy++;turns ++; anz++;  board[playsx][playsy] = turns;} //up right  
+    }
+    if (playsx == destx && playsy == desty){ break;}
+    
+    
+     if (playsx == destx && playsy != desty ){
+  if (playsx == destx && playsy < desty){ playsy++;turns ++; anz++;  board[playsx][playsy] = turns;}
+  if (playsx == destx && playsy > desty){ playsy--;turns ++; anz++;  board[playsx][playsy] = turns;}
+    }
+    if (playsx == destx && playsy == desty){ break;}
   
   
 
 inc++;
 }
 
+
+
 //Display Map
-for (int t = 0; t < verx; t++ )
-{for (int p = 0; p < horiz; p++ )
+for (int t = 0; t < sizeof board[0]; t++ )
+{for (int p = 0; p <sizeof board / sizeof board[0]; p++ )
  {printf("%c", board[t][p]); }printf("\n");
 }
 
+printf("\n %d", turns -48);
 printf("\n %d", anz);
  return 0;
  
 }
-
- 
-}
-
