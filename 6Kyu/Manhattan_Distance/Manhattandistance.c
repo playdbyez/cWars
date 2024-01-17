@@ -1,9 +1,9 @@
-// Expected 80
+// Expected 100
 #include <stdio.h>
 
 int main()
 {
-    int a[2] = {80, 20}; int b[2] = {46, 90};
+    int a[2] = {70, 92}; int b[2] = {29, 33};
 
   int totala = a[0] > b[0] ?  a[0]: b[0];  
   int botala = a[1] > b[1] ?  a[1]: b[1];
