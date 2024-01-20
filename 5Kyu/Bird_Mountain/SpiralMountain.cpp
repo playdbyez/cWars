@@ -87,7 +87,9 @@ vector<string> mountain = {
         
     for (size_t i = 0; i < mountain.size(); ++i)
         {for (size_t j = 0; j < mountain[i].size(); ++j){
-            if ( mountain[i][j] == '^' && mountain[i][j+1] == '1' && mountain[i][j-1] == '1'  ){mountain[i][j] = '1';}}}
+            if ( mountain[i][j] == '^' && mountain[i][j+1] == '1' && mountain[i][j-1] == '1'  ){mountain[i][j] = '1';}
+            if ( mountain[i][j] == '^' && mountain[i+1][j] == '1' && mountain[i-1][j] == '1'  ){mountain[i][j] = '1';}
+        }}
   
         
                                                                                                              
