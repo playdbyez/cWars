@@ -18,7 +18,6 @@ if (std:: find (v.begin(), v.end(), elem) != v.end ())
 //Ternary operator
 int mxNumber = 10 > 15 ? 10 : 15;
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 //cpp11 multidimensional array + vector
 int a1[3][3] = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
