@@ -67,6 +67,8 @@ int num = rand() %range + min;
 
 #include <math.h>
  int nDigits = floor(log10(abs(VarSize))) + 1;
+//OR
+unsigned nDigits = floor(log10(n)) + 1;
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // to_string version of C 
 
