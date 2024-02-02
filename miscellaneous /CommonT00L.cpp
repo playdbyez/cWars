@@ -79,7 +79,7 @@ sprintf(str, "%d", someInt);
 // Proper initialization of Char pointer
  // Proper Sprintf type casting and multiple insertion
 
-
+char *s = ""abcdefghijklm"
 size_t size = strlen(s);
 char *buff = malloc(sizeof(s)/sizeof(char));  
 sprintf(buff, "%d/%d", upt,(int)size);
