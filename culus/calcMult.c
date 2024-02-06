@@ -6,7 +6,7 @@
 int main()
 {
 int x = 124;
-int y = 69;
+int y = 29;
 size_t xlen = floor(log10(x))+1;
 size_t ylen = floor(log10(y))+1;
 
@@ -37,30 +37,22 @@ for (int i = strlen(buffy) ; i > 0 ; i--){       expo = buffy[strlen(buffy)-m] -
     
     for (int j = strlen(buffx) ; j > 0 ; j--){
         
-                                                bas  = buffx[strlen(buffx)-n] -48;
+                                                 bas  = buffx[strlen(buffx)-n] -48;
         sum  = expo * bas;
-        printf("expo is = %d\n", expo);
-        printf("bas is = %d\n", bas);
         sum+= carry;
-        
-        printf("%d\n", sum);
         sprintf(buffsum,"%d", sum);
         
         if(j != 1){
-            if(strlen(buffsum) > 1){
-                    buffs1[0] = buffsum[0];
-                    buffs2[0] = buffsum[1];
-                    if (strlen(buffsum) > 1)carry     = buffs1[0]-48;
-                    final[o]  = buffs2[0];
-                    o++;
-            }
-            
-            if (strlen(buffsum) == 1){
-                    
-                    if (strlen(buffsum) > 1){carry  = buffs1[0]-48;}
-                    final[o]  = buffsum[0];
-                    o++;
-            }
+            if(strlen(buffsum) > 1){    buffs1[0] = buffsum[0];
+                                        buffs2[0] = buffsum[1];
+                                        if (strlen(buffsum) > 1){carry = buffs1[0]-48;}
+                                        final[o]  = buffs2[0];
+                                        o++;}
+    
+        if (strlen(buffsum) == 1){  
+            if (strlen(buffsum) > 1){   carry  = buffs1[0]-48;}
+                                        final[o]  = buffsum[0];
+                                        o++;}
         }
         
         if (j == 1 ){
@@ -70,7 +62,7 @@ for (int i = strlen(buffy) ; i > 0 ; i--){       expo = buffy[strlen(buffy)-m] -
         }            
         n++;
     }
-    final[o] = ' ';
+    final[o] = '-';
     carry = 0;
     o++;
     n =1;
@@ -79,5 +71,42 @@ for (int i = strlen(buffy) ; i > 0 ; i--){       expo = buffy[strlen(buffy)-m] -
 
 printf("\n\n%s", final);
 
-return 0;
+
+char ffin[strlen(final)];
+int inc = 0, dec = strlen(final)-1;
+int maxcol = 0;
+int cntcol;
+int rows = 1;
+while (dec > -1 )
+{
+    if (dec != -1){
+    ffin[inc] = final[dec];
+    inc++;
+    dec--;
+    }
+    
+    
+    if (final[dec] != '-' && final[dec] != '\0')  { cntcol++; }
+    if ( cntcol > maxcol )  { maxcol = cntcol; }
+    if (final[dec] == '-')  { rows++; cntcol = 0; }
+    
 }
+maxcol+=1;
+ffin [strlen(final)] = '\0';
+char tablot[maxcol][rows]; // Summation table
+
+
+printf("\ncols = %d and rolls = %d", maxcol,rows);
+printf("\n%s", ffin);
+
+
+for(){
+    for (){
+        
+    }
+}
+
+
+
+return 0;
+} 
