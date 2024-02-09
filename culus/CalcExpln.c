@@ -6,8 +6,8 @@
 
 int main()
 {
-int x = 124;
-int y = 69;
+int x = 24;
+int y = 25;
 
 size_t xlen = floor(log10(x))+1;
 size_t ylen = floor(log10(y))+1;
@@ -86,5 +86,3 @@ printf("\n\n%s", final);
 
 return 0;
 } 
-
-had me firstime haha
