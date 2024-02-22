@@ -1,0 +1,6 @@
+Strlen = 129 characters
+Attempts = 3
+Soft = Ameroican MEgatrends 2.20.1276
+Error = 0199
+Hardware = ThinkCentre M70q
+SN = S4RU8390
