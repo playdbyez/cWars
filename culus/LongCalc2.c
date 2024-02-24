@@ -119,10 +119,10 @@ final = realloc(final, q*xlen);
     unsigned long long inct = 0;
     unsigned long long maxx = 0;
     unsigned long long maxy = 0;
-    unsigned *spcline;
-        spcline = (unsigned *)malloc(incd*sizeof(int));
+    int spcline[xlen];
+    spcline[0] = 0;    
     o = 0;
-    q = 0;
+    q = 1;
     while(o < strlen(final))
     {
         inct++;
@@ -137,28 +137,45 @@ final = realloc(final, q*xlen);
         maxy++;
         inct = 0;
         incd++;
-            spcline = realloc (spcline, incd*sizeof(int));
-            *(spcline + q) = incd;
+            
+            spcline[q] = incd;
             q++;
  
         }
         o++;
     }
 maxy++;
-   o = 0;
-inct = 0;
 maxx+=incd; 
-    //char tabler[maxx][maxy];
-    //printf("\n%d  & %d & %d", maxx, maxy, incd);
+
+char *tabler[maxx][maxy];
+
+
+o = 0;
+
+for (int i = 0; i < maxy; i ++)
+{for (int j = maxx; j > 0; j --)
+{
+    if (j < spcline[o])
+    
+}
+
+   
  
-    char* tabler[maxx][maxy];
- 
- 
- 
+  
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
     //Output Tabler
  
-   size_t nlen = sizeof(spcline)/sizeof(spcline[0]);
-        printf("%d", nlen);
+  
  
     printf("\n\n");
     for (unsigned i = 0; i < maxy; i++){
@@ -168,6 +185,10 @@ maxx+=incd;
      }
         printf("\n");
     }
+ 
+ 
+     //char tabler[maxx][maxy];
+    //printf("\n%d  & %d & %d", maxx, maxy, incd);
  
 //printf("\n\n%s", final);
  
