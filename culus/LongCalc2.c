@@ -33,7 +33,7 @@ unsigned long long o = 0;
 unsigned long long q = 0;
  
  
-char final[xlen*xlen];
+char final[xlen*ylen+xlen+ylen];
  
 
 for (unsigned long long i = strlen(buffy) ; i > 0 ; i--){       expo = buffy[strlen(buffy)-m] -48;
