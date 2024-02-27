@@ -176,8 +176,7 @@ sizeof arr[0]/ size of arr[0][0]
 #include <stdlib.h>
 #include <time.h>
 
-time_t t;
-srand((unsigned) time(&t));
+srand((unsigned) time(NULL));
 
 unsigned val = rand() % 50;
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
