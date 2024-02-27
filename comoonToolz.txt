@@ -61,14 +61,27 @@ int num = rand() %range + min;
 
 :::::::::::::::::::::::::::::::::::::::::::::#########         C           ###########:::::::::::::::::::::::::::::::::::::::::::::::::
 
+//Clock Function
+#include <time.h>
 
+clock_t start , end;
+start = clock();
+//function
+end = clock();
 
+printf("%f", (double) (end - start) / CLOCKS_PER_SEC);
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+//Empy an array
+#include <stdlib.h>
+
+bzero(arr, sizeof arr)
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 //length of an Int object
 
 #include <math.h>
  int nDigits = floor(log10(abs(VarSize))) + 1;
 //OR
-unsigned nDigits = floor(log10(n)) + 1;
+unsigned nDigits = log10(n) + 1;
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // to_string version of C 
 
