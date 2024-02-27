@@ -58,6 +58,15 @@ srand (time(NULL));
 int range = max - min +1;
 int num = rand() %range + min;
 
+
+// Alternative random number generator from 0 to 50
+
+#include <random>
+
+random_device rd;
+
+uniform_int_distribution<int> range(0 , 50);
+val = range(rd);
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ######################################################################################################################################
@@ -162,5 +171,13 @@ sizeof arr[0]/ size of arr[0][0]
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
+// Random N# generator from 0 to 49
 
+#include <stdlib.h>
+#include <time.h>
 
+time_t t;
+srand((unsigned) time(&t));
+
+unsigned val = rand() % 50;
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
