@@ -18,10 +18,15 @@ unsigned long long ylen = strlen(buffy);
  
 unsigned long long bas;     
 unsigned long long expo;
-int zrz = 0;
+
+
 char buffsum[3];
 char buffs1[3];
 char buffs2[3];
+
+int zrz = 0;
+unsigned gig;
+gig = xlen > ylen ? xlen : ylen;
  
  
 unsigned long long sum    = 0;
@@ -33,7 +38,7 @@ unsigned long long o = 0;
 unsigned long long q = 0;
  
  
-char final[xlen*ylen+xlen+ylen];
+char final[gig*gig +gig*2];
  
 
 for (unsigned long long i = strlen(buffy) ; i > 0 ; i--){       expo = buffy[strlen(buffy)-m] -48;
@@ -42,12 +47,9 @@ for (unsigned long long i = strlen(buffy) ; i > 0 ; i--){       expo = buffy[str
  
                                                 bas  = buffx[strlen(buffx)-n] -48;
         sum  = expo * bas;
-        //printf("expo is = %d\n", expo);
-        //printf("bas is = %d\n", bas);
         zrz = 0;
         if (sum == 0){zrz = 1;}
         sum= carry+sum;
-        //printf("sum is = %d\n", sum);
         sprintf(buffsum,"%lld", sum);
         if (zrz == 1 ){carry = 0;}
         if(j != 1){
@@ -85,54 +87,29 @@ for (unsigned long long i = strlen(buffy) ; i > 0 ; i--){       expo = buffy[str
     m++;
 }
  
- 
- memset( final+strlen(final), '\0', 0 );
- 
- 
-    unsigned long long incd = 0;
-    unsigned long long inct = 0;
-    unsigned long long maxx = 0;
-    unsigned long long maxy = 0;
-    int spcline[xlen];
-    spcline[0] = 0;    
-    o = 0;
-    q = 1;
-    while(o < strlen(final))
-    {
-        inct++;
-        if (final[o] == '-' && final[o+1] > '9' || final[o] == '-' && final[o+1] < '0' )
-        {memset(final+o, '\0', strlen(final)); break;}
- 
-        if (final[o] == '-')
-        { 
-        if (inct > maxx )
-        {maxx = inct;} 
- 
-        maxy++;
-        inct = 0;
-        incd++;
-            
-            spcline[q] = incd;
-            q++;
- 
+memset( final+strlen(final), '\0', 0 );
+
+
+ o = 0;
+int spcline[gig];    
+while (o < gig){ *(spcline+o) = o; o++;}    
+
+char tablz [1+gig*2][gig];
+
+    int szd = sizeof (spcline)/ sizeof spcline[0];    
+    int szt = sizeof (tablz)/ sizeof tablz[0];    
+    
+    for(unsigned i  = 0; i < gig; i++){
+         for(unsigned j  = 0; j < szt; j++){
+            tablz[i][j] = '0';
         }
-        o++;
     }
-maxy++;
-maxx+=incd; 
+    
+    
+    
 
-char *tabler[maxx][maxy];
- 
-printf("\n\n");
-    for (unsigned i = 0; i < maxy; i++){
-     for (unsigned j = 0; j < maxx; j++){
-        printf("%d ", tabler[i][j]);
- 
-     }
-        printf("\n");
-    } 
- 
-
+    
+    printf("%d", szt );
  
     end= clock();
 
@@ -150,4 +127,3 @@ return 0;
  
     
  
-
