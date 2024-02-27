@@ -71,11 +71,27 @@ end = clock();
 
 printf("%f", (double) (end - start) / CLOCKS_PER_SEC);
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 //Empy an array
 #include <stdlib.h>
 
 bzero(arr, sizeof arr)
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+//insert nullptr at end of char array
+#include <stdlib.h>
+
+memset(arr+strlen(arr)+1, '\0', 0);
+
+
+
+//insert dot(.) as a range from arr[5] to 6 characters ahead (arr[11])
+#include <stdlib.h>
+
+memset(arr+6, '.', 6*sizeof(char));
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
 //length of an Int object
 
 #include <math.h>
@@ -83,20 +99,28 @@ bzero(arr, sizeof arr)
 //OR
 unsigned nDigits = log10(n) + 1;
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
 // to_string version of C 
 
 int someInt = 368;
 char str[12];
 sprintf(str, "%d", someInt);
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-// Proper initialization of Char pointer
- // Proper Sprintf type casting and multiple insertion
 
-char *s = ""abcdefghijklm"
-size_t size = strlen(s);
-char *buff = malloc(sizeof(s)/sizeof(char));  
-sprintf(buff, "%d/%d", upt,(int)size);
+
+//returning a heap-allocated output == malloc the output
+ // since SPRINTF is very specific a change of type casting was necessary
+   // buff had to be allocated as apointer because the function that encapsulates it was a pointer
+
+
+char val = '5';
+size_t size = 10;
+char *buff = malloc(strlen(val)*sizeof(char));  
+sprintf(buff, "%d/%d", val,(int)size);
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
 // Sort function
 // the comp struct will return a negative (-1) in order to sort a list in Ascending order
 // List can also be sorted in Descending order by returning a positive value (1)
@@ -121,6 +145,17 @@ srand (time(NULL));
 int range = max - min +1;
 int num = rand() %range + min;
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+//lenght of rows in an 2D-array
+
+sizeof arr/ size of arr[0]
+
+
+//lenght of columns in an 2D-array
+
+sizeof arr[0]/ size of arr[0][0]
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 
 
