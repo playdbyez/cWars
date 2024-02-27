@@ -1,4 +1,5 @@
 //https://www3.cs.stonybrook.edu/~skiena/algorist/book/programs/bignum.c
+//https://gmplib.org/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -37,19 +38,20 @@ unsigned o = 0;
 
 char final[(strlen(buffx))*4];
 
-for (int i = strlen(buffy) ; i > 0 ; i--){       expo = buffy[strlen(buffy)-m] -48;
-    
-    for (int j = strlen(buffx) ; j > 0 ; j--){
-        
+for (unsigned long long i = strlen(buffy) ; i > 0 ; i--){       expo = buffy[strlen(buffy)-m] -48;
+ carry = 0;
+    for (unsigned long long j = strlen(buffx) ; j > 0 ; j--){
+ 
                                                 bas  = buffx[strlen(buffx)-n] -48;
         sum  = expo * bas;
-        printf("expo is = %d\n", expo);
-        printf("bas is = %d\n", bas);
-        sum+= carry;
-        
-        printf("%d\n", sum);
-        sprintf(buffsum,"%d", sum);
-        
+        //printf("expo is = %d\n", expo);
+        //printf("bas is = %d\n", bas);
+        zrz = 0;
+        if (sum == 0){zrz = 1;}
+        sum= carry+sum;
+        //printf("sum is = %d\n", sum);
+        sprintf(buffsum,"%lld", sum);
+        if (zrz == 1 ){carry = 0;}
         if(j != 1){
             if(strlen(buffsum) > 1){
                     buffs1[0] = buffsum[0];
@@ -58,28 +60,35 @@ for (int i = strlen(buffy) ; i > 0 ; i--){       expo = buffy[strlen(buffy)-m] -
                     final[o]  = buffs2[0];
                     o++;
             }
-            
+ 
             if (strlen(buffsum) == 1){
-                    
+ 
                     if (strlen(buffsum) > 1){carry  = buffs1[0]-48;}
+                    if (strlen(buffsum) == 1){carry  = 0;}
                     final[o]  = buffsum[0];
                     o++;
+ 
             }
         }
-        
+ 
         if (j == 1 ){
-            
-        final[o] = buffsum[0];o++;
+            if (strlen(buffsum) > 1){
         final[o] = buffsum[1];o++;
+        final[o] = buffsum[0];o++;
+            }
+            if (strlen(buffsum) == 1){final[o] = buffsum[0];o++;}
         }            
         n++;
     }
-    final[o] = '-';
+    if (i != 1)final[o] = '-';
     carry = 0;
     o++;
     n =1;
     m++;
 }
+ 
+ 
+ memset( final+strlen(final), '\0', 0 );
 
 printf("\n\n%s", final);
 
