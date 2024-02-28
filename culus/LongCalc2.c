@@ -87,7 +87,7 @@ for (unsigned long long i = strlen(buffy) ; i > 0 ; i--){       expo = buffy[str
     m++;
 }
  
-memset( final+strlen(final), '\0', 0 );
+memset( final+strlen(final), '\0', sizeof(char) );
 
 
  o = 0;
