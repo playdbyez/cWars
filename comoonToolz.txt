@@ -108,11 +108,10 @@ memset(arr, '\0', sizeof (char));
 
 
 //length of an Int object
+// returns error if the int is 0
 
 #include <math.h>
- int nDigits = floor(log10(abs(VarSize))) + 1;
-//OR
-unsigned nDigits = log10(n) + 1;
+int nDigits = log10(n) + 1;
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
