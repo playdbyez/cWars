@@ -95,10 +95,9 @@ for (unsigned long long i = strlen(buffy) ; i > 0 ; i--){       expo = buffy[str
     m++;
 }
     //printf("%s", final);
-    printf("%d", sizeof final);
  
-memset( final+strlen(final), '\0', 0 );
-
+memset( final+strlen(final), '\0', sizeof(char) );
+int flen = q;
 
  o = 0;
 int spcline[gig];    
