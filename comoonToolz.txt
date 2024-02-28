@@ -92,17 +92,17 @@ printf("%f", (double) (end - start) / CLOCKS_PER_SEC);
 bzero(arr, sizeof arr)
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-//insert nullptr at end of char array
+//insert nullptr and delete the last character within an array
 #include <stdlib.h>
 
-memset(arr+strlen(arr)+1, '\0', 0);
+memset(arr+strlen(arr)-1, '\0', sizeof (char));
 
 
 
 //insert dot(.) as a range from arr[5] to 6 characters ahead (arr[11])
 #include <stdlib.h>
 
-memset(arr+6, '.', 6*sizeof(char));
+memset(arr+6, '.', 6*sizeof (char));
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
