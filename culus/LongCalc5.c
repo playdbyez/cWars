@@ -111,10 +111,8 @@ int flen = q;
 free (buffsum);
 free (buffs2);
 o = 0;
-sum   = 0;
-carry = 0;
-int spcline[gig];    
-while (o < gig){ *(spcline+o) = o; o++;}    
+
+    
 
    char tablz [gig][gig*2];  
     int szt1 = sizeof tablz/ sizeof tablz[0];
@@ -135,13 +133,26 @@ while (o < gig){ *(spcline+o) = o; o++;}
     }
     
     free (final);
+    
+    
+    buffsum = malloc (sizeof(char)*6);
+    buffs2 = malloc (sizeof(char)*6);
+    char mander[szt2+1];
+    o     = 0;
+    sum   = 0;
+    carry = 0;
+    zrz   = 0;
+    
+    
+    
+    
     //Continue..
     
+    //printf("%d", strlen(mander));
     
     
     
-    
-    /*
+   /* 
     //Output tablz
     for(unsigned i  = 0; i < szt1; i++){
          for(unsigned j  = 0; j < szt2; j++){
