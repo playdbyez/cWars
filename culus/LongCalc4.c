@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
+#include <math.h>
 #include <time.h>
  
  
@@ -18,8 +18,7 @@ unsigned long long ylen = strlen(buffy);
  
 unsigned long long bas;     
 unsigned long long expo;
- 
- 
+
 char * buffsum;
     buffsum = malloc (sizeof(char)*3);
 
@@ -49,11 +48,11 @@ unsigned long long v = 0;
     final = (char*) malloc (gig * sizeof (char));
     q = gig;
  
- 
+
 for (unsigned long long i = strlen(buffy) ; i > 0 ; i--){  
     while (w < v){final[o] = '0';w++;o++;q++;final =  realloc (final, q*sizeof (char));}
     v++;
- 
+    
  expo = buffy[strlen(buffy)-m] -48;
  carry = 0;
     for (unsigned long long j = strlen(buffx) ; j > 0 ; j--){
@@ -61,10 +60,9 @@ for (unsigned long long i = strlen(buffy) ; i > 0 ; i--){
                                                 bas  = buffx[strlen(buffx)-n] -48;
         sum  = expo * bas;
         zrz = 0;
- 
+        if (sum == 0){zrz = 1;}
         sum= carry+sum;
         sprintf(buffsum,"%lld", sum);
-        if (sum == 0 ){zrz = 1;}
         if (zrz == 1 ){carry = 0;}
         if(j != 1){
             if(strlen(buffsum) > 1){
@@ -76,9 +74,8 @@ for (unsigned long long i = strlen(buffy) ; i > 0 ; i--){
                 final =  realloc (final, q*sizeof (char));
             }
  
-            if (strlen(buffsum) == 1){
+           if (strlen(buffsum) == 1){
                     carry  = 0;
-                    o++;q++;
                     final[o]  = buffsum[0];
                     o++;q++; 
                 final =  realloc (final, q*sizeof (char));
@@ -106,12 +103,9 @@ for (unsigned long long i = strlen(buffy) ; i > 0 ; i--){
     m++;
     w=0;
 }
- 
-//check if improvments are made by
-//changing final[o] to pointer
- 
+ memset( final+strlen(final), '\0', sizeof (char) );
+
 int flen = q;
- 
  
  
 free (buffsum);
@@ -119,39 +113,53 @@ free (buffs2);
 o = 0;
 sum   = 0;
 carry = 0;
-    int fst = 0;
-    int nodi = 0;
-char finplus[strlen(final)/2];
- 
-    for(int i = 0; i < strlen(final); i++){
-        carry = 0;
-        for(int j = 0; j < strlen(final); j++){
-            if (isdigit(final[j])) {nodi = 1;}
-            if (j == 0 && fst == 0){sum+= final[j]-48;j++;j++; final[j-2] = '-';fst = 1;}
-            if (final[j-1] == '-' && isdigit(final[j]) ){sum+=final[j]-48;j++;j++; final[j-2] = '-';}    
-            if  (nodi == 0 && j == strlen(final)-1){nodi = 0;break;}
- 
- 
- 
+int spcline[gig];    
+while (o < gig){ *(spcline+o) = o; o++;}    
+
+   char tablz [gig][gig*2];  
+    int szt1 = sizeof tablz/ sizeof tablz[0];
+    int szt2 = sizeof tablz[0]/ sizeof tablz[0][0];
+    
+    
+    
+    for (int i  = 0; i < szt1; i++ ){for (int j  = 0; j < szt2; j++ ){ tablz[i][j] = '0';}    }
+    
+    
+  o = 0;   
+    for (int i  = 0; i < szt1; i++ ){
+        for (int j  = szt2-1; j > -1; j-- ){
+                        if (final[o] == '-'){o++; break;}
+            tablz[i][j] = final[o];
+                        if (o < strlen(final)){o++;}
+        }     
+    }
+    
+    free (final);
+    //Continue..
+    
+    
+    
+    
+    
+    /*
+    //Output tablz
+    for(unsigned i  = 0; i < szt1; i++){
+         for(unsigned j  = 0; j < szt2; j++){
+            printf("%c",tablz[i][j]);
         }
-        zrz = 0;
-        sum= carry+sum;
-        sprintf(buffsum,"%lld", sum);
-        if (sum == 0 || strlen (buffsum) == 1){zrz = 1;}
-        
-        if (zrz == 1 ){carry = 0;}
- 
- 
-        if (nodi == 0){break;}
-        nodi = 0;
-     //printf("%s", final);   
-}    
- free (final);
- memset(final, '\0', flen);
- 
+        printf("\n");
+    }
+
+    
+    
+    //Output final
+    for (int i  = 0; i < strlen(final); i++ ){
+        if (final[i] == '-'){i++; printf("\n");}
+        printf("%c", final[i]);}
+   */
  
     end= clock();
- 
+
 // 1.0 seconds
 // 0.1 = tenth of a second
 // 0.01 = hundreth of a second
@@ -162,4 +170,7 @@ printf("\n%f ms", (double) (end-start)  / CLOCKS_PER_SEC);
 return 0;
 } 
  
+  
+ 
+    
  
