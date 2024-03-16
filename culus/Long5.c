@@ -19,10 +19,14 @@ unsigned long long ylen = strlen(buffy);
 unsigned long long bas;     
 unsigned long long expo;
 
+char * buffsum;
+    buffsum = malloc (sizeof(char)*3);
 
-char buffsum[3];
-char buffs1[3];
-char buffs2[3];
+    char buffs1[3];
+    
+char * buffs2;
+     buffs2 = malloc (sizeof(char)*3);
+
 
 int zrz = 0;
 unsigned gig;
@@ -38,8 +42,8 @@ unsigned long long o = 0;
 unsigned long long q = 0;
 unsigned long long w = 0;
 unsigned long long v = 0;
-    
-    
+ 
+ 
     char *final; 
     final = (char*) malloc (gig * sizeof (char));
     q = gig;
@@ -99,12 +103,16 @@ for (unsigned long long i = strlen(buffy) ; i > 0 ; i--){
     m++;
     w=0;
 }
-    
-    printf("%s", final);
- 
-int flen = q;
+ memset( final+strlen(final), '\0', sizeof (char) );
 
- o = 0;
+int flen = q;
+ 
+ 
+free (buffsum);
+free (buffs2);
+o = 0;
+sum   = 0;
+carry = 0;
 int spcline[gig];    
 while (o < gig){ *(spcline+o) = o; o++;}    
 
@@ -130,7 +138,7 @@ while (o < gig){ *(spcline+o) = o; o++;}
     
     
     
-    /*
+   
     //Output tablz
     for(unsigned i  = 0; i < szt1; i++){
          for(unsigned j  = 0; j < szt2; j++){
@@ -140,7 +148,7 @@ while (o < gig){ *(spcline+o) = o; o++;}
     }
 
     
-    
+     /*
     //Output final
     for (int i  = 0; i < strlen(final); i++ ){
         if (final[i] == '-'){i++; printf("\n");}
