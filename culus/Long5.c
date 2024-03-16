@@ -116,7 +116,7 @@ carry = 0;
 int spcline[gig];    
 while (o < gig){ *(spcline+o) = o; o++;}    
 
-   char tablz [gig][1+gig*2];  
+   char tablz [gig][gig*2];  
     int szt1 = sizeof tablz/ sizeof tablz[0];
     int szt2 = sizeof tablz[0]/ sizeof tablz[0][0];
     
@@ -127,18 +127,21 @@ while (o < gig){ *(spcline+o) = o; o++;}
     
   o = 0;   
     for (int i  = 0; i < szt1; i++ ){
-        for (int j  = szt2-1; j > 0; j-- ){
+        for (int j  = szt2-1; j > -1; j-- ){
                         if (final[o] == '-'){o++; break;}
             tablz[i][j] = final[o];
                         if (o < strlen(final)){o++;}
         }     
     }
     
+    free (final);
+    //Continue..
     
     
     
     
-   
+    
+    /*
     //Output tablz
     for(unsigned i  = 0; i < szt1; i++){
          for(unsigned j  = 0; j < szt2; j++){
@@ -148,7 +151,7 @@ while (o < gig){ *(spcline+o) = o; o++;}
     }
 
     
-     /*
+    
     //Output final
     for (int i  = 0; i < strlen(final); i++ ){
         if (final[i] == '-'){i++; printf("\n");}
