@@ -1,4 +1,4 @@
-//https://rextester.com/l/c_online_compiler_clang
+
 #include <stdio.h>
 #include <malloc.h>
 #include <string.h>
@@ -28,14 +28,14 @@ for (int long long i = len1-1; i > -1; i--)
   
     
   
-    for (int i = tablex; i > 0; i--){    
-        for (int j = 1; j < tabley; j++){
+    for (int i = tablex-1; i > -1; i--){    
+        for (int j = 0; j < tabley; j++){
         
             printf("%c", sumtable[j][i]);
         
         
         }
-        printf ("\n");
+        printf ("\n SUM\n--------\n");
     }
   
           
@@ -52,4 +52,7 @@ for (int long long i = len1-1; i > -1; i--)
   }
   
     //printf ("%d"tablezx);
+
+    return 0;
 }
+
