@@ -49,6 +49,8 @@ for (int long long i = len1-1; i > -1; i--)
   memset(totodile+bl, '\0', sizeof(char));
   char hold;
   bl--;
+
+    //Sort output in reverse
       for (int i  =0; i < strlen(totodile); i++)
   {  if (&totodile[i] < &totodile[bl]){hold = totodile[bl]; totodile[bl] = totodile[i]; totodile[i] = hold; bl--;}  }
  
