@@ -20,14 +20,28 @@ Node *Listin(Node *head, char val)
 {   Node *nptr = Listmake (val);
     nptr -> next = head
     return nptr;    }
-
+/*
 //printf?
-void Listerate (Node *head)
-{
+char *Listerate (Node *head, int len, char *arr)
+{    Node *p = head;
+             while (p != NULL)
+                 {    }
     
     
 }
 
+*/
+
+void List_print(Node *head)
+{
+  printf("\nPrinting the whole list:\n");
+        while (head != NULL)
+                {
+                  printf("%d ", head->value);
+                  head = head->next;
+                }
+  printf("\n");
+}
 
 
 void Listend(Node *head)                      
@@ -61,9 +75,8 @@ for (int long long i = len1-1; i > -1; i--)
  iter = tablex -1;
   for (int long long i = len2-1; i > -1; i--)
     {if (iter>-1){sumtable[1][iter] = b[i];iter--;}}
-  
-      char *totodile;
-  totodile = malloc(sizeof (char) * (max+2));
+
+Node * nd = NULL;
   int sum = 0;
   int carry = 0;
   char buffsum[4];
@@ -73,25 +86,18 @@ for (int long long i = len1-1; i > -1; i--)
         for (int j = 0; j < tabley; j++){     sum += sumtable[j][i] - 48;   }
         sum+= carry;
                 sprintf(buffsum, "%d", sum);
-        if (strlen(buffsum) == 1){ totodile[bl] = buffsum[0];bl++; carry = 0;}
-        if (strlen(buffsum) == 2){ totodile[bl] = buffsum[1]; bl++; carry =buffsum[0]-48; }
+        if (strlen(buffsum) == 1){ nd = Listin(nd, buffsum[0]); bl++; carry = 0;}
+        if (strlen(buffsum) == 2){ nd = Listin(nd, buffsum[1]); bl++; carry =buffsum[0]-48; }
         
-        if (i == 0 && strlen(buffsum) == 2) {totodile[bl] = buffsum[0];bl++;
-                                             totodile[bl] = buffsum[1];bl++; carry = 0;}
+        if (i == 0 && strlen(buffsum) == 2) {nd = Listin(nd, buffsum); bl+=2; carry = 0;}
         if (i == 0 && strlen(buffsum) == 1) { carry = 0;}
         
         sum = 0;
     }
-  memset(totodile+bl, '\0', sizeof(char));
-  char hold;
-  bl--;
-  
-  
- 
-          
-  bl = 0;
- //for (strlen(totodile))
     
-    
-    printf ("%s",totodile);
+    char *buff;
+  buff = malloc(sizeof (char) * (bl+1));
+
+    List_print(nd);
+  
 }
