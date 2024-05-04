@@ -4,7 +4,7 @@
 
 typedef struct listnode
 {
-    listnode *next;
+    struct listnode *next;
     char value;
 }Node;
 
@@ -18,29 +18,23 @@ Node *Listmake(char val)
 
 Node *Listin(Node *head, char val)
 {   Node *nptr = Listmake (val);
-    nptr -> next = head
+    nptr -> next = head;
     return nptr;    }
-/*
-//printf?
-char *Listerate (Node *head, int len, char *arr)
-{    Node *p = head;
-             while (p != NULL)
-                 {    }
-    
-    
-}
 
-*/
 
-void List_print(Node *head)
+char *Listerate (Node *head, char *arr, int len)
 {
   printf("\nPrinting the whole list:\n");
-        while (head != NULL)
+        int bil = 0;
+        int uti = 0;
+        Node *pl = head;
+        while (pl != NULL )
                 {
-                  printf("%d ", head->value);
-                  head = head->next;
+                if (pl -> value != '0'){bil = 1;}
+                if (bil == 1){arr[uti] = pl->value; uti++;}
+                      pl = pl->next;
                 }
-  printf("\n");
+return arr;
 }
 
 
@@ -89,7 +83,7 @@ Node * nd = NULL;
         if (strlen(buffsum) == 1){ nd = Listin(nd, buffsum[0]); bl++; carry = 0;}
         if (strlen(buffsum) == 2){ nd = Listin(nd, buffsum[1]); bl++; carry =buffsum[0]-48; }
         
-        if (i == 0 && strlen(buffsum) == 2) {nd = Listin(nd, buffsum); bl+=2; carry = 0;}
+        if (i == 0 && strlen(buffsum) == 2) {nd = Listin(nd, buffsum[1]); bl++;nd = Listin(nd, buffsum[0]); bl++; carry = 0;}
         if (i == 0 && strlen(buffsum) == 1) { carry = 0;}
         
         sum = 0;
@@ -98,6 +92,9 @@ Node * nd = NULL;
     char *buff;
   buff = malloc(sizeof (char) * (bl+1));
 
-    List_print(nd);
-  
+    buff =  Listerate(nd,buff,bl+1);
+            Listend(nd);
+
+    for (int i = 0; i < bl+1; i++)
+    {printf ("%c ", buff[i]);}
 }
