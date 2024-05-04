@@ -17,12 +17,27 @@ Node *Listmake(char val)
     return chptr;   }
 
 Node *Listin(Node *head, char val)
-{   nptr = Listmake (val);
+{   Node *nptr = Listmake (val);
     nptr -> next = head
     return nptr;    }
 
+//printf?
+void Listerate (Node *head)
+{
+    
+    
+}
 
-void Listerate ()
+
+
+void Listend(Node *head)                      
+{
+  while (head != NULL){
+        Node *p = head->next;
+        free(head);
+        head = p;  
+  }
+}
 
 int main ()
 {
