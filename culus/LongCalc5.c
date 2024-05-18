@@ -2,12 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include <time.h>
  
  
 int main()
 {
-clock_t start , end;
 char *buffx = "34570005056892984637486820";
 char *buffy = "40820245540029171906865204";
 // Target result = "1411156094742421775373509194368931047469571066611280";
@@ -119,10 +117,11 @@ o = 0;
     int szt2 = sizeof tablz[0]/ sizeof tablz[0][0];
     
     
-    
+// Fill SumTable with Zeros
     for (int i  = 0; i < szt1; i++ ){for (int j  = 0; j < szt2; j++ ){ tablz[i][j] = '0';}    }
+
     
-    
+// Transfer values in reverse to SumTable    
   o = 0;   
     for (int i  = 0; i < szt1; i++ ){
         for (int j  = szt2-1; j > -1; j-- ){
@@ -134,7 +133,8 @@ o = 0;
     
     free (final);
     
-    
+
+// No idea..    
     buffsum = malloc (sizeof(char)*6);
     buffs2 = malloc (sizeof(char)*6);
     char mander[szt2+1];
@@ -152,7 +152,7 @@ o = 0;
     
     
     
-   /* 
+     
     //Output tablz
     for(unsigned i  = 0; i < szt1; i++){
          for(unsigned j  = 0; j < szt2; j++){
@@ -162,26 +162,12 @@ o = 0;
     }
 
     
-    
+   /*
     //Output final
     for (int i  = 0; i < strlen(final); i++ ){
         if (final[i] == '-'){i++; printf("\n");}
         printf("%c", final[i]);}
    */
  
-    end= clock();
-
-// 1.0 seconds
-// 0.1 = tenth of a second
-// 0.01 = hundreth of a second
-// 0.001 = thousandth of a second = milisecond
-// 0.000001 = milionth of a second = microsecond
-printf("\n%f ms", (double) (end-start)  / CLOCKS_PER_SEC);
- 
 return 0;
 } 
- 
-  
- 
-    
- 
