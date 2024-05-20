@@ -103,6 +103,7 @@ for (unsigned long long i = strlen(buffy) ; i > 0 ; i--){
 }
  memset( final+strlen(final), '\0', sizeof (char) );
 
+// Size of multiplication str             
 int flen = q;
  
  
@@ -111,8 +112,8 @@ free (buffs2);
 o = 0;
 
     
-
-   char tablz [gig][gig*2];  
+// Size of final multiplication cannot be larger than twice the size of multiplicant given the ammount of zeros
+   char tablz [gig][gig*2+1];  
     int szt1 = sizeof tablz/ sizeof tablz[0];
     int szt2 = sizeof tablz[0]/ sizeof tablz[0][0];
     
