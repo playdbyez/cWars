@@ -3,7 +3,24 @@
 #include <string.h>
 #include <math.h>
 #include <time.h>
- 
+
+CW Code
+long zeros(long n) {
+  unsigned absol = 0;
+  //while (absol < n+1){
+  absol = n;
+      unsigned ablent = log10(absol)+1;
+      char buffy [ablent+1];
+          sprintf (buffy, "%ld",absol);
+    
+      char *buffx;
+
+
+printf("%d\n", ablent);
+  //absol++;
+  //}
+  return 42;
+
  
 int main()
 {
@@ -172,4 +189,9 @@ printf("\n%f ms", (double) (end-start)  / CLOCKS_PER_SEC);
  
 return 0;
 } 
- 
+
+// for the ammount of zeros
+// Calculate Increasing square roots untill a whole number is fuond that is equal to or bigger the factorial !n
+// The answer is said number -1
+// ( 馬鹿め )Bakame ('>.>)
+
