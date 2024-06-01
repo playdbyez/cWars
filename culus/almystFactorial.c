@@ -49,9 +49,9 @@ void Listend(Node *head)
 int main()
 {
 
-char *buffx = "34570005056892984637486820";       // Buffx's strlen() cannot be longer  than Buffy
-char *buffy = "40820245540029171906865204569";
-// Target result = "1411156094742421775373509194368931047469571066611280";
+char *buffx = "3";       // Buffx's strlen() cannot be longer  than Buffy
+char *buffy = "2";
+
  
 
 unsigned long long xlen = strlen(buffx);
@@ -72,13 +72,11 @@ char * buffs2;
 int zrz = 0;
 unsigned gig;
 gig = xlen > ylen ? xlen : ylen;
-printf("%d\n", gig); 
  
 unsigned long long sum    = 0;
 unsigned long long carry  = 0;
 unsigned long long n = 1; 
 unsigned long long m = 1;
-unsigned long long t = 1; //huh?
 unsigned long long o = 0;
 unsigned long long q = 0;
 unsigned long long w = 0;
@@ -152,7 +150,7 @@ int flen = q;
  
  
 
-free (buffs2);
+
 o = 0;
 sum   = 0;
 carry = 0;
@@ -177,57 +175,37 @@ while (o < gig){ *(spcline+o) = o; o++;}
         }     
     }
     
-    free (final);
+    if (strlen(final) == 1){printf("%s",final);}
+  
+    if (strlen(final) > 1){
+                            memset (buffsum, '\0', sizeof(char));
+                            buffsum = malloc(sizeof(char)*3);
+                            Node * nd = NULL;
+                            unsigned bl = 0;
 
-    //Continue..
-    memset (buffsum, '\0', sizeof(char));
-    buffsum = malloc(sizeof(char)*3);
-    Node * nd = NULL;
-    unsigned bl = 0;
+                            for (int i = szt2-1; i > -1; i--){    
+                                for (int j = 0; j < szt1; j++){     sum += tablz[j][i] - 48;   }
+                                sum+= carry;
+                                        sprintf(buffsum, "%d", sum);
+
+                                if (strlen(buffsum) == 1){ nd = Listin(nd, buffsum[0]); bl++; carry = 0;}
+                                if (strlen(buffsum) == 2){ nd = Listin(nd, buffsum[1]); bl++; carry =buffsum[0]-48; }
+                                if (strlen(buffsum) == 3){ buffsum = realloc (buffsum, sizeof(char)*4); nd = Listin(nd, buffsum[2]); bl++; carry =sum/10; buffsum[2] = '\0'; }
+
+                                if (i == 0 && strlen(buffsum) == 2) {nd = Listin(nd, buffsum[1]); bl++;nd = Listin(nd, buffsum[0]); bl++; carry = 0;}
+                                if (i == 0 && strlen(buffsum) == 1) { carry = 0;}
+
+                                sum = 0;
+                            }
+
+                            free (buffsum);
+                            char *buff;
+                          buff = malloc(sizeof (char) * (bl+1));
+                          buff = Listerate(nd, buff,bl+1);  
+                            printf("%s", buff);
     
-    for (int i = szt2-1; i > -1; i--){    
-        for (int j = 0; j < szt1; j++){     sum += tablz[j][i] - 48;   }
-        sum+= carry;
-                sprintf(buffsum, "%d", sum);
-          
-        if (strlen(buffsum) == 1){ nd = Listin(nd, buffsum[0]); bl++; carry = 0;}
-        if (strlen(buffsum) == 2){ nd = Listin(nd, buffsum[1]); bl++; carry =buffsum[0]-48; }
-        if (strlen(buffsum) == 3){ buffsum = realloc (buffsum, sizeof(char)*4); nd = Listin(nd, buffsum[2]); bl++; carry =sum/10; buffsum[2] = '\0'; }
-        
-        if (i == 0 && strlen(buffsum) == 2) {nd = Listin(nd, buffsum[1]); bl++;nd = Listin(nd, buffsum[0]); bl++; carry = 0;}
-        if (i == 0 && strlen(buffsum) == 1) { carry = 0;}
-        
-        sum = 0;
     }
-    
-    free (buffsum);
-    char *buff;
-  buff = malloc(sizeof (char) * (bl+1));
-  buff = Listerate(nd, buff,bl+1);  
-    printf("%s", buff);
-    //for (int i = 0; i < bl+1; i++){printf("%c",buff[i]); }
-    
-    /* 
-    //Output tablz
-    for(unsigned i  = 0; i < szt1; i++){
-         for(unsigned j  = 0; j < szt2; j++){
-            printf("%c",tablz[i][j]);
-        }
-        printf("\n");
-    }
+  
 
-   
-      
-    //Output final
-    for (int i  = 0; i < strlen(final); i++ ){
-        if (final[i] == '-'){i++; printf("\n");}
-        printf("%c", final[i]);}
- */
- 
-    
-
-
-
- 
 return 0;
-} 
+}
