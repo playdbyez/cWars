@@ -1,8 +1,21 @@
+//https://www3.cs.stonybrook.edu/~skiena/algorist/book/programs/bignum.c
+//https://gmplib.org/
 //www.calculator.net/big-number-calculator.html
+
+// 1.0 seconds
+// 0.1 = tenth of a second
+// 0.01 = hundreth of a second
+// 0.001 = thousandth of a second = milisecond
+// 0.000001 = milionth of a second = microsecond
+
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include <time.h>
 
 typedef struct listnode
 {
@@ -48,9 +61,10 @@ void Listend(Node *head)
  
 int main()
 {
-
-char *buffx = "3";       // Buffx's strlen() cannot be longer  than Buffy
-char *buffy = "2";
+clock_t start , end;
+start = clock();
+char *buffx = "18785312561";       // Buffx's strlen() cannot be longer  than Buffy
+char *buffy = "249875659728493";
 
  
 
@@ -175,7 +189,7 @@ while (o < gig){ *(spcline+o) = o; o++;}
         }     
     }
     
-    if (strlen(final) == 1){printf("%s",final);}
+    if (strlen(final) == 1){printf("%s x %s = ( %s )",buffx,buffy, final);}
   
     if (strlen(final) > 1){
                             memset (buffsum, '\0', sizeof(char));
@@ -203,10 +217,14 @@ while (o < gig){ *(spcline+o) = o; o++;}
                           buff = malloc(sizeof (char) * (bl+1));
                           buff = Listerate(nd, buff,bl+1);
                           Listend(nd);
-                            printf("%s", buff);
+                            printf("%s x %s = ( %s )",buffx,buffy, buff);
     
     }
-  
+
+                
+end= clock();
+printf("\nResult fetched in %f ms", (double) (end-start)  / CLOCKS_PER_SEC);
 
 return 0;
 }
+
