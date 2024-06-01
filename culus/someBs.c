@@ -190,8 +190,12 @@ printf("\n%f ms", (double) (end-start)  / CLOCKS_PER_SEC);
 return 0;
 } 
 
-// for the ammount of zeros
-// Calculate Increasing square roots untill a whole number is fuond that is equal to or bigger the factorial !n
-// The answer is said number -1
+// ### for the ammount of zeros ###
+//N (target number)
+//Square root of random increasing numb = A
+//Multiply A by 2 = X
+//X squared ≡ (X * X) = Z
+//when Z  >=  N
+//The answer is A -1
 // ( 馬鹿め )Bakame ('>.>)
 
