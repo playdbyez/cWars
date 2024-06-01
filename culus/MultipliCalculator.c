@@ -201,7 +201,8 @@ while (o < gig){ *(spcline+o) = o; o++;}
                             free (buffsum);
                             char *buff;
                           buff = malloc(sizeof (char) * (bl+1));
-                          buff = Listerate(nd, buff,bl+1);  
+                          buff = Listerate(nd, buff,bl+1);
+                          Listend(nd);
                             printf("%s", buff);
     
     }
