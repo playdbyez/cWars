@@ -49,13 +49,13 @@ void Listend(Node *head)
 
 int main ()
 {
-    char *a = "99";
-    char *b = "1";
+    char *a = "0";
+    char *b = "0";
    int len1 = strlen(a);
    int len2 = strlen(b);  
    int max  = len1>len2 ? len1: len2;
    unsigned long internz;
-  
+  if (a[0] == '0' && b[0] == '0'){printf("0"); return 0;}
   char sumtable[2][max];
   
           int long tabley = sizeof (sumtable)/ sizeof sumtable [0];
