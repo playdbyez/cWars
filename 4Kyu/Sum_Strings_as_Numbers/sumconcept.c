@@ -1,3 +1,6 @@
+//https://rextester.com/l/c_online_compiler_clang (CLANG COMPILER)
+//https://stackoverflow.com/questions/36542284/difference-between-clang-and-gcc
+//https://www.reddit.com/r/C_Programming/comments/som4ys/gcc_or_clang/?rdt=58151
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
