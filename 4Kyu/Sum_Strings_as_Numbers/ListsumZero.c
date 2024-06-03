@@ -24,7 +24,7 @@ Node *Listin(Node *head, char val)
 
 char *Listerate (Node *head, char *arr, int len)
 {
-  printf("\nPrinting the whole list:\n");
+ 
         int bil = 0;
         int uti = 0;
         Node *pl = head;
@@ -49,8 +49,8 @@ void Listend(Node *head)
 
 int main ()
 {
-    char *a = "0";
-    char *b = "0";
+    char *a = "359936595980891113";
+    char *b = "081774365239459950206306580569804925085307617894";
    int len1 = strlen(a);
    int len2 = strlen(b);  
    int max  = len1>len2 ? len1: len2;
