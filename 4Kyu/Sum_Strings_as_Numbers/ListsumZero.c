@@ -51,8 +51,8 @@ void Listend(Node *head)
 
 int main ()
 {
-    char *a = "02678432";
-    char *b = "00045696";
+    char *a = "00001";
+    char *b = "9";
    int len1 = strlen(a);
    int len2 = strlen(b);  
    int max  = len1>len2 ? len1: len2;
@@ -108,18 +108,20 @@ Node * nd = NULL;
     while(ind!= sizeof (buff)){ if (!isalnum(buff[ind])){break;}ind++;}
     
 //array with final result
-//freeing the original transfer
     char *anz;
     anz = malloc (sizeof(char)*ind);
-    for (int i =0; i < bl; i ++)
+
+    for (int i =0; i < ind; i ++)
     {
         if (!isalnum(buff[i])){break;}
         anz[i] = buff[i];
     }
     free(buff);
+    memset(anz+ind, '\0', sizeof(char));
     
 //outputs
     printf("len is %d\n",ind);
+    printf("len is %d\n",sizeof(anz));
     if (buff[0] == '0') {printf("0\n"); return 0;}
     printf ("%s\n", anz);
 }
