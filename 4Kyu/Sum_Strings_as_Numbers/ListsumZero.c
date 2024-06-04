@@ -51,13 +51,13 @@ void Listend(Node *head)
 
 int main ()
 {
-    char *a = "25678432";
-    char *b = "45696";
+    char *a = "02678432";
+    char *b = "00045696";
    int len1 = strlen(a);
    int len2 = strlen(b);  
    int max  = len1>len2 ? len1: len2;
-   unsigned long internz;
   
+  //determining the sumtable size  
   char sumtable[2][max];
   
           int long tabley = sizeof (sumtable)/ sizeof sumtable [0];
@@ -68,19 +68,21 @@ int main ()
   
   
   
-  
+// placing values from back to head within the sumtable  
 for (int long long i = len1-1; i > -1; i--)
     {if (iter>-1){sumtable[0][iter] = a[i];iter--;}}
  iter = tablex -1;
   for (int long long i = len2-1; i > -1; i--)
     {if (iter>-1){sumtable[1][iter] = b[i];iter--;}}
 
+//creating a linked list
 Node * nd = NULL;
   int sum = 0;
   int carry = 0;
   char buffsum[4];
    int bl = 0;
-  
+
+//inserting values to linked list that gets rid of initial zeros  
     for (int i = tablex-1; i > -1; i--){    
         for (int j = 0; j < tabley; j++){     sum += sumtable[j][i] - 48;   }
         sum+= carry;
@@ -93,12 +95,31 @@ Node * nd = NULL;
         
         sum = 0;
     }
-    
-    char *buff;
-  buff = malloc(sizeof (char) * (bl));
+
+//creating and transfering the linked list to an array
+      char *buff;
+      buff = malloc(sizeof (char) * (bl));
 
     buff =  Listerate(nd,buff);
             Listend(nd);
+        
+//asserting right length of calculation for malloc
+    int ind = 0;
+    while(ind!= sizeof (buff)){ if (!isalnum(buff[ind])){break;}ind++;}
+    
+//array with final result
+//freeing the original transfer
+    char *anz;
+    anz = malloc (sizeof(char)*ind);
+    for (int i =0; i < bl; i ++)
+    {
+        if (!isalnum(buff[i])){break;}
+        anz[i] = buff[i];
+    }
+    free(buff);
+    
+//outputs
+    printf("len is %d\n",ind);
     if (buff[0] == '0') {printf("0\n"); return 0;}
-    printf ("%s\n", buff);
+    printf ("%s\n", anz);
 }
