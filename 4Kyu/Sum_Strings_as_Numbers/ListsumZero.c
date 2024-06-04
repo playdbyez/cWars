@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <malloc.h>
 #include <string.h>
+#include <ctype.h>
 
 typedef struct listnode
 {
@@ -22,7 +23,7 @@ Node *Listin(Node *head, char val)
     return nptr;    }
 
 
-char *Listerate (Node *head, char *arr, int len)
+char *Listerate (Node *head, char *arr)
 {
  
         int bil = 0;
@@ -30,10 +31,11 @@ char *Listerate (Node *head, char *arr, int len)
         Node *pl = head;
         while (pl != NULL )
                 {
-                if (pl -> value != '0'){bil = 1;}
+                if (isalnum(pl -> value) && pl -> value != '0'){bil = 1;}
                 if (bil == 1){arr[uti] = pl->value; uti++;}
-                      pl = pl->next;
+                 pl = pl->next;
                 }
+            if (pl == NULL && bil == 0) { arr[0] = '0'; return arr; }
 return arr;
 }
 
@@ -49,13 +51,13 @@ void Listend(Node *head)
 
 int main ()
 {
-    char *a = "359936595980891113";
-    char *b = "081774365239459950206306580569804925085307617894";
+    char *a = "25678432";
+    char *b = "45696";
    int len1 = strlen(a);
    int len2 = strlen(b);  
    int max  = len1>len2 ? len1: len2;
    unsigned long internz;
-  if (a[0] == '0' && b[0] == '0'){printf("0"); return 0;}
+  
   char sumtable[2][max];
   
           int long tabley = sizeof (sumtable)/ sizeof sumtable [0];
@@ -93,10 +95,10 @@ Node * nd = NULL;
     }
     
     char *buff;
-  buff = malloc(sizeof (char) * (bl+1));
+  buff = malloc(sizeof (char) * (bl));
 
-    buff =  Listerate(nd,buff,bl+1);
+    buff =  Listerate(nd,buff);
             Listend(nd);
-
-    printf ("%s", buff);
+    if (buff[0] == '0') {printf("0\n"); return 0;}
+    printf ("%s\n", buff);
 }
