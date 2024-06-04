@@ -1,4 +1,4 @@
 ###### Alts ######   
-www.codingame.com/start/  
+codingame.com/start/  
 leetcode.com/  
-www.hackerrank.com/  
+hackerrank.com/  
